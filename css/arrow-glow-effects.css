@@ -163,28 +163,7 @@
   }
 }
 
-@keyframes navArrowGlow {
-  0% {
-    color: #4f8cff;
-    text-shadow: 0 0 10px rgba(79, 140, 255, 0.8), 0 0 20px rgba(79, 140, 255, 0.4);
-  }
-  25% {
-    color: #a855f7;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(168, 85, 247, 0.4);
-  }
-  50% {
-    color: #ec4899;
-    text-shadow: 0 0 10px rgba(236, 72, 153, 0.8), 0 0 20px rgba(236, 72, 153, 0.4);
-  }
-  75% {
-    color: #f59e0b;
-    text-shadow: 0 0 10px rgba(245, 158, 11, 0.8), 0 0 20px rgba(245, 158, 11, 0.4);
-  }
-  100% {
-    color: #4f8cff;
-    text-shadow: 0 0 10px rgba(79, 140, 255, 0.8), 0 0 20px rgba(79, 140, 255, 0.4);
-  }
-}
+
 
 @keyframes brandGlow {
   0% {
@@ -204,28 +183,7 @@
   }
 }
 
-@keyframes mobileNavArrowGlow {
-  0% {
-    color: #4f8cff;
-    text-shadow: 0 0 8px rgba(79, 140, 255, 0.7), 0 0 16px rgba(79, 140, 255, 0.3);
-  }
-  25% {
-    color: #a855f7;
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.7), 0 0 16px rgba(168, 85, 247, 0.3);
-  }
-  50% {
-    color: #ec4899;
-    text-shadow: 0 0 8px rgba(236, 72, 153, 0.7), 0 0 16px rgba(236, 72, 153, 0.3);
-  }
-  75% {
-    color: #f59e0b;
-    text-shadow: 0 0 8px rgba(245, 158, 11, 0.7), 0 0 16px rgba(245, 158, 11, 0.3);
-  }
-  100% {
-    color: #4f8cff;
-    text-shadow: 0 0 8px rgba(79, 140, 255, 0.7), 0 0 16px rgba(79, 140, 255, 0.3);
-  }
-}
+
 
 @keyframes menuIconGlow {
   0% {
@@ -245,35 +203,14 @@
   }
 }
 
-/* Navigation Arrow Glow Effects */
+/* Navigation Effects (arrows removed) */
 .nav-link {
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible;
-}
-
-.nav-link::after {
-  content: '→';
-  position: absolute;
-  right: -25px;
-  top: 50%;
-  transform: translateY(-50%) translateX(10px);
-  font-size: 16px;
-  font-weight: bold;
-  opacity: 0;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.nav-link:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-  animation: navArrowGlow 2s ease-in-out infinite;
 }
 
 .nav-link:hover {
-  transform: translateX(-3px);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Brand Logo Glow on Hover */
@@ -283,59 +220,22 @@
   animation: brandGlow 2s ease-in-out infinite;
 }
 
-/* Footer Links Glow */
+/* Footer Links Effects (arrows removed) */
 .footer-link {
-  position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-link::after {
-  content: '↗';
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%) translateX(8px);
-  font-size: 14px;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.footer-link:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-  animation: arrowTextCycle 2s ease-in-out infinite;
-}
-
 .footer-link:hover {
-  transform: translateX(-2px);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* Mobile Navigation Arrow Effects */
+/* Mobile Navigation Effects (arrows removed) */
 .w-nav-link {
-  position: relative;
   transition: all 0.3s ease;
-}
-
-.w-nav-link::after {
-  content: '→';
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%) translateX(10px);
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.w-nav-link:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-  animation: mobileNavArrowGlow 2s ease-in-out infinite;
 }
 
 .w-nav-link:hover {
-  transform: translateX(-2px);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
 /* Menu Button Glow */
@@ -354,36 +254,16 @@
     transform: scale(1.05);
   }
   
-  .nav-link::after {
-    right: -20px;
-    font-size: 14px;
-  }
-  
-  .nav-link:hover {
-    transform: translateX(-2px);
-  }
-  
   .brand:hover {
     transform: scale(1.05);
-  }
-  
-  .footer-link::after {
-    right: -15px;
-    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
-  .nav-link::after,
-  .footer-link::after {
-    display: none; /* Hide arrows on very small screens to prevent layout issues */
-  }
-  
   .nav-link:hover,
   .footer-link:hover,
   .w-nav-link:hover {
-    transform: none;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -415,12 +295,7 @@
     color: #4f8cff;
   }
   
-  .nav-link:hover::after,
-  .footer-link:hover::after,
-  .w-nav-link:hover::after {
-    color: #4f8cff;
-    text-shadow: 0 0 8px rgba(79, 140, 255, 0.6);
-  }
+
   
   .brand:hover {
     filter: drop-shadow(0 0 15px rgba(79, 140, 255, 0.6));
@@ -444,11 +319,4 @@
   box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
 }
 
-.nav-link:focus::after,
-.footer-link:focus::after,
-.w-nav-link:focus::after {
-  opacity: 1;
-  color: #4f8cff;
-  text-shadow: 0 0 8px rgba(79, 140, 255, 0.6);
-  transform: translateY(-50%) translateX(0);
-} 
+ 

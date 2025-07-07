@@ -1,0 +1,218 @@
+/* Arrow Glow Effects - Matching Rotating Title Pattern */
+
+/* Main Arrow Link Glow */
+.arrow-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow-link:hover {
+  transform: scale(1.15);
+  animation: arrowColorCycle 2s ease-in-out infinite;
+}
+
+.arrow-link:hover .arrow-link-icon {
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  animation: arrowIconPulse 2s ease-in-out infinite;
+}
+
+.arrow-link:hover .arrow-hover-circle {
+  animation: arrowCircleGlow 2s ease-in-out infinite;
+  border-width: 2px;
+}
+
+/* Project Card Arrow Icons Glow */
+.efi-arrow-icon-4 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.efi-arrow-icon-4::before {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: currentColor;
+  transition: all 0.3s ease;
+}
+
+.efi-ft-10-feature-4:hover .efi-arrow-icon-4 {
+  animation: projectArrowGlow 2s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+.efi-ft-10-feature-4:hover .efi-arrow-icon-4::before {
+  text-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
+  animation: arrowTextCycle 2s ease-in-out infinite;
+}
+
+/* Triangle Arrow Wrapper Glow */
+.triangle-arrow-wrapper:hover .triangle {
+  animation: triangleGlow 2s ease-in-out infinite;
+  transform: scale(1.05);
+}
+
+/* Keyframe Animations */
+@keyframes arrowColorCycle {
+  0% {
+    box-shadow: 0 0 20px rgba(79, 140, 255, 0.6), 0 0 40px rgba(79, 140, 255, 0.3);
+  }
+  25% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.6), 0 0 40px rgba(236, 72, 153, 0.3);
+  }
+  75% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(79, 140, 255, 0.6), 0 0 40px rgba(79, 140, 255, 0.3);
+  }
+}
+
+@keyframes arrowIconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes arrowCircleGlow {
+  0% {
+    border-color: #4f8cff;
+    box-shadow: inset 0 0 20px rgba(79, 140, 255, 0.3), 0 0 30px rgba(79, 140, 255, 0.4);
+  }
+  25% {
+    border-color: #a855f7;
+    box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.3), 0 0 30px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    border-color: #ec4899;
+    box-shadow: inset 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.4);
+  }
+  75% {
+    border-color: #f59e0b;
+    box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.3), 0 0 30px rgba(245, 158, 11, 0.4);
+  }
+  100% {
+    border-color: #4f8cff;
+    box-shadow: inset 0 0 20px rgba(79, 140, 255, 0.3), 0 0 30px rgba(79, 140, 255, 0.4);
+  }
+}
+
+@keyframes projectArrowGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+  }
+  75% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
+  }
+}
+
+@keyframes arrowTextCycle {
+  0% {
+    color: #4f8cff;
+    text-shadow: 0 0 15px rgba(79, 140, 255, 0.8), 0 0 25px rgba(79, 140, 255, 0.5);
+  }
+  25% {
+    color: #a855f7;
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.8), 0 0 25px rgba(168, 85, 247, 0.5);
+  }
+  50% {
+    color: #ec4899;
+    text-shadow: 0 0 15px rgba(236, 72, 153, 0.8), 0 0 25px rgba(236, 72, 153, 0.5);
+  }
+  75% {
+    color: #f59e0b;
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.8), 0 0 25px rgba(245, 158, 11, 0.5);
+  }
+  100% {
+    color: #4f8cff;
+    text-shadow: 0 0 15px rgba(79, 140, 255, 0.8), 0 0 25px rgba(79, 140, 255, 0.5);
+  }
+}
+
+@keyframes triangleGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(79, 140, 255, 0.4);
+  }
+  25% {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+  }
+  75% {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(79, 140, 255, 0.4);
+  }
+}
+
+/* Navigation Arrow Glow (if any) */
+.nav-link:hover::after {
+  content: '→';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: arrowTextCycle 2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .arrow-link:hover {
+    transform: scale(1.08);
+  }
+  
+  .efi-ft-10-feature-4:hover .efi-arrow-icon-4 {
+    transform: scale(1.05);
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .arrow-link:hover,
+  .efi-arrow-icon-4,
+  .triangle-arrow-wrapper:hover .triangle {
+    animation: none;
+    transform: none;
+  }
+  
+  .arrow-link:hover {
+    box-shadow: 0 0 20px rgba(79, 140, 255, 0.6);
+  }
+  
+  .arrow-link:hover .arrow-hover-circle {
+    border-color: #4f8cff;
+    box-shadow: 0 0 15px rgba(79, 140, 255, 0.4);
+  }
+  
+  .efi-ft-10-feature-4:hover .efi-arrow-icon-4::before {
+    text-shadow: 0 0 10px #4f8cff;
+    color: #4f8cff;
+  }
+}
+
+/* Focus states for accessibility */
+.arrow-link:focus,
+.efi-ft-10-feature-4:focus .efi-arrow-icon-4 {
+  outline: 2px solid #4f8cff;
+  outline-offset: 2px;
+  box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
+} 

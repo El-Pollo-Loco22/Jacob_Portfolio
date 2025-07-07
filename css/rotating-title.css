@@ -1,0 +1,426 @@
+/* Rotating Title Animation */
+.rotating-title {
+  position: relative;
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: inherit;
+  min-height: 1.2em;
+  overflow: visible;
+  width: 100%;
+  margin: 0.5rem 0;
+  line-height: 1.1;
+}
+
+.rotating-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: none;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+/* Ensure first text is visible by default */
+.rotating-text:first-child {
+  display: block;
+  opacity: 1;
+}
+
+/* Color variations for different titles */
+.rotating-text:nth-child(1) {
+  /* UX Designer - Bright Blue with glow */
+  color: #4f8cff !important;
+  text-shadow: 0 0 20px rgba(79, 140, 255, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rotating-text:nth-child(2) {
+  /* Tech Creative - Bright Purple with glow */
+  color: #a855f7 !important;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rotating-text:nth-child(3) {
+  /* Prompt Engineer - Bright Pink with glow */
+  color: #ec4899 !important;
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rotating-text:nth-child(4) {
+  /* Multi-Media Artist - Bright Orange with glow */
+  color: #f59e0b !important;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (background-clip: text) {
+  .rotating-text:nth-child(1) {
+    color: #667eea;
+  }
+  
+  .rotating-text:nth-child(2) {
+    color: #764ba2;
+  }
+  
+  .rotating-text:nth-child(3) {
+    color: #f093fb;
+  }
+  
+  .rotating-text:nth-child(4) {
+    color: #f59e0b;
+  }
+}
+
+/* Circle Link Button Animations */
+.circle-link {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+/* Color cycling animation on hover */
+.circle-link:hover {
+  transform: scale(1.1) !important;
+  animation: colorCycle 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.circle-link:hover .button-text {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+.circle-link:hover .scroll-link-outline {
+  animation: outlineRotate 2s linear infinite;
+}
+
+/* Keyframe animations */
+@keyframes colorCycle {
+  0% {
+    border-color: #4f8cff;
+    box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
+  }
+  25% {
+    border-color: #a855f7;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  }
+  50% {
+    border-color: #ec4899;
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+  }
+  75% {
+    border-color: #f59e0b;
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+  }
+  100% {
+    border-color: #4f8cff;
+    box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
+  }
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+  }
+}
+
+@keyframes outlineRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced hover state with background glow */
+.circle-link:hover::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: backgroundPulse 2s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rotating-title {
+    font-size: 2.2rem;
+    min-height: 1.2em;
+    margin: 0.4rem 0;
+  }
+  
+  .rotating-text {
+    font-size: 2.2rem;
+  }
+  
+  .circle-link:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .rotating-title {
+    font-size: 1.8rem;
+    min-height: 1.1em;
+    margin: 0.3rem 0;
+  }
+  
+  .rotating-text {
+    font-size: 1.8rem;
+    letter-spacing: 0.01em;
+  }
+  
+  .circle-link:hover {
+    transform: scale(1.03) !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .rotating-text {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+  
+  .rotating-text.active {
+    transform: none;
+  }
+  
+  .rotating-text.fade-out {
+    transform: none;
+  }
+  
+  .rotating-text.slide-in,
+  .rotating-text.slide-out {
+    animation: none;
+  }
+  
+  .circle-link:hover {
+    animation: none;
+    border-color: #4f8cff;
+    box-shadow: 0 0 15px rgba(79, 140, 255, 0.3);
+  }
+  
+  .circle-link:hover .button-text {
+    animation: none;
+  }
+  
+  .circle-link:hover .scroll-link-outline {
+    animation: none;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.rotating-title:focus-within {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.circle-link:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+}
+
+/* Navigation Bar Color Cycling Animations */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #4f8cff;
+  transform: translateX(-50%);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+/* Navigation link hover animations */
+.nav-link:hover {
+  animation: navColorCycle 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+  animation: navUnderlineCycle 2s ease-in-out infinite;
+}
+
+/* Brand logo hover animation */
+.brand:hover {
+  animation: navColorCycle 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* Mobile nav link animations */
+.mobile-nav-menu .nav-link:hover {
+  animation: navColorCycle 2s ease-in-out infinite;
+  background: linear-gradient(45deg, transparent, rgba(79, 140, 255, 0.1), transparent);
+}
+
+/* Keyframe animations for navigation */
+@keyframes navColorCycle {
+  0% {
+    color: #4f8cff;
+    text-shadow: 0 0 10px rgba(79, 140, 255, 0.6);
+  }
+  25% {
+    color: #a855f7;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+  }
+  50% {
+    color: #ec4899;
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+  }
+  75% {
+    color: #f59e0b;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+  }
+  100% {
+    color: #4f8cff;
+    text-shadow: 0 0 10px rgba(79, 140, 255, 0.6);
+  }
+}
+
+@keyframes navUnderlineCycle {
+  0% {
+    background: linear-gradient(90deg, #4f8cff, #4f8cff);
+    box-shadow: 0 0 5px rgba(79, 140, 255, 0.5);
+  }
+  25% {
+    background: linear-gradient(90deg, #a855f7, #a855f7);
+    box-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+  }
+  50% {
+    background: linear-gradient(90deg, #ec4899, #ec4899);
+    box-shadow: 0 0 5px rgba(236, 72, 153, 0.5);
+  }
+  75% {
+    background: linear-gradient(90deg, #f59e0b, #f59e0b);
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+  }
+  100% {
+    background: linear-gradient(90deg, #4f8cff, #4f8cff);
+    box-shadow: 0 0 5px rgba(79, 140, 255, 0.5);
+  }
+}
+
+/* Menu button (hamburger) hover animation */
+.menu-button:hover {
+  animation: navColorCycle 2s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+.menu-button:hover .menu-icon {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(79, 140, 255, 0.5));
+  }
+  25% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.5));
+  }
+  75% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.5));
+  }
+}
+
+/* Navigation line divider hover effect */
+.nav-link-line {
+  transition: all 0.3s ease;
+}
+
+.nav-menu-items:hover .nav-link-line {
+  background: linear-gradient(90deg, #4f8cff, #a855f7, #ec4899, #f59e0b);
+  height: 2px;
+  animation: lineShimmer 2s ease-in-out infinite;
+}
+
+@keyframes lineShimmer {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+}
+
+/* Accessibility for navigation animations */
+@media (prefers-reduced-motion: reduce) {
+  .nav-link:hover,
+  .brand:hover,
+  .menu-button:hover {
+    animation: none;
+    color: #4f8cff;
+    text-shadow: 0 0 5px rgba(79, 140, 255, 0.3);
+  }
+  
+  .nav-link:hover::before {
+    animation: none;
+    background: #4f8cff;
+  }
+  
+  .nav-menu-items:hover .nav-link-line {
+    animation: none;
+    background: #4f8cff;
+  }
+}
+
+ 

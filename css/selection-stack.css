@@ -1,0 +1,208 @@
+/* Selection Stack Styles */
+.selection-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.select-btn {
+  opacity: 0;
+  transform: translateY(40px);
+  width: 100%;
+  height: 50vh;
+  min-height: 400px;
+  padding: 3rem;
+  border: none;
+  border-radius: 0;
+  background: #000000;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  transition: 
+    transform 0.4s cubic-bezier(0.4, 2, 0.6, 1),
+    background 0.5s ease,
+    filter 0.3s ease,
+    box-shadow 0.3s ease;
+  outline: none;
+}
+
+/* Square button styling */
+.select-btn.square {
+  position: relative;
+}
+
+.select-btn.ux-ai {
+  background: #000000;
+}
+
+.select-btn.art-design {
+  background: #000000;
+}
+
+/* Button content */
+.btn-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  letter-spacing: 0.5rem;
+}
+
+.btn-text {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  display: block;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+}
+
+.btn-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  max-width: 80%;
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+/* Hover and focus states */
+.select-btn:focus,
+.select-btn:hover {
+  transform: scale(1.02);
+  filter: brightness(1.2);
+}
+
+/* UX & AI Glossy Purple Hover */
+.select-btn.ux-ai:hover {
+  background: linear-gradient(135deg, #6b46c1 0%, #a855f7 50%, #9333ea 100%);
+  box-shadow: 
+    0 20px 40px rgba(168, 85, 247, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.select-btn.ux-ai:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+  pointer-events: none;
+}
+
+/* Art & Design Glossy Orange Hover */
+.select-btn.art-design:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #f59e0b 50%, #d97706 100%);
+  box-shadow: 
+    0 20px 40px rgba(245, 158, 11, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.select-btn.art-design:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+  pointer-events: none;
+}
+
+/* Animation keyframes */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .select-btn {
+    min-height: 300px;
+    height: 45vh;
+    padding: 2rem;
+  }
+  
+  .btn-text {
+    font-size: 2.2rem;
+  }
+  
+  .btn-icon {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+  }
+  
+  .btn-subtitle {
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .select-btn {
+    min-height: 250px;
+    height: 40vh;
+    padding: 1.5rem;
+  }
+  
+  .btn-text {
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+  }
+  
+  .btn-icon {
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+  }
+  
+  .btn-subtitle {
+    font-size: 0.8rem;
+    max-width: 95%;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Accessibility improvements */
+.select-btn:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .select-btn:not(.prominent) {
+    background: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .select-btn:not(.prominent):hover {
+    background: #2a2a2a;
+  }
+} 

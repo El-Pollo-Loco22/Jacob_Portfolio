@@ -214,10 +214,69 @@
 }
 
 /* Brand Logo Glow on Hover */
+.brand {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .brand:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
   animation: brandGlow 2s ease-in-out infinite;
+}
+
+/* Brand Logo Text Morph Effect */
+.brand::after {
+  content: 'HOME';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'THICCCBOI', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  white-space: nowrap;
+  text-shadow: 0 0 15px currentColor;
+}
+
+.brand:hover::after {
+  opacity: 1;
+  animation: homeTextCycle 2s ease-in-out infinite;
+}
+
+.brand:hover img {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Home Text Color Cycling Animation */
+@keyframes homeTextCycle {
+  0% {
+    color: #4f8cff;
+    text-shadow: 0 0 20px rgba(79, 140, 255, 0.8), 0 0 30px rgba(79, 140, 255, 0.5);
+  }
+  25% {
+    color: #a855f7;
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 30px rgba(168, 85, 247, 0.5);
+  }
+  50% {
+    color: #ec4899;
+    text-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 30px rgba(236, 72, 153, 0.5);
+  }
+  75% {
+    color: #f59e0b;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 30px rgba(245, 158, 11, 0.5);
+  }
+  100% {
+    color: #4f8cff;
+    text-shadow: 0 0 20px rgba(79, 140, 255, 0.8), 0 0 30px rgba(79, 140, 255, 0.5);
+  }
 }
 
 /* Footer Links Effects (arrows removed) */
@@ -257,6 +316,10 @@
   .brand:hover {
     transform: scale(1.05);
   }
+  
+  .brand::after {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -264,6 +327,11 @@
   .footer-link:hover,
   .w-nav-link:hover {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  .brand::after {
+    font-size: 12px;
+    letter-spacing: 0.05em;
   }
 }
 
@@ -295,10 +363,23 @@
     color: #4f8cff;
   }
   
-
-  
   .brand:hover {
     filter: drop-shadow(0 0 15px rgba(79, 140, 255, 0.6));
+    transform: scale(1.05);
+  }
+  
+  .brand:hover::after {
+    animation: none;
+    color: #4f8cff;
+    text-shadow: 0 0 15px rgba(79, 140, 255, 0.8);
+  }
+  
+  .brand:hover img {
+    transition: all 0.4s ease;
+  }
+  
+  .brand::after {
+    transition: all 0.4s ease;
   }
   
   .menu-button:hover .menu-icon {

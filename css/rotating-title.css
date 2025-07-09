@@ -194,6 +194,17 @@
   .circle-link:hover {
     transform: scale(1.05) !important;
   }
+  
+  /* Adjust nav-link drop shadows for mobile */
+  .nav-link {
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+    padding: 6px 12px;
+  }
+  
+  .nav-link:hover {
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 15px rgba(79, 140, 255, 0.2));
+    transform: translateY(-1px);
+  }
 }
 
 @media (max-width: 480px) {
@@ -210,6 +221,18 @@
   
   .circle-link:hover {
     transform: scale(1.03) !important;
+  }
+  
+  /* Further adjust nav-link drop shadows for small mobile */
+  .nav-link {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .nav-link:hover {
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 10px rgba(79, 140, 255, 0.15));
+    transform: translateY(-1px);
   }
 }
 
@@ -265,6 +288,18 @@
   position: relative;
   transition: all 0.3s ease;
   overflow: hidden;
+  /* Add drop shadow to make nav items pop out */
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+/* Backdrop effects only for About and Contact nav items */
+.nav-link[href="about.html"],
+.nav-link[href="contact.html"] {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-link::before {
@@ -284,6 +319,15 @@
   animation: navColorCycle 2s ease-in-out infinite;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
+  /* Enhanced drop shadow on hover */
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(79, 140, 255, 0.3));
+}
+
+/* Enhanced backdrop effects on hover for About and Contact only */
+.nav-link[href="about.html"]:hover,
+.nav-link[href="contact.html"]:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-link:hover::before {
@@ -410,6 +454,20 @@
     animation: none;
     color: #4f8cff;
     text-shadow: 0 0 5px rgba(79, 140, 255, 0.3);
+  }
+  
+  .nav-link {
+    /* Maintain subtle drop shadow for accessibility */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    /* Static drop shadow for reduced motion */
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 15px rgba(79, 140, 255, 0.4));
+    transform: translateY(-1px);
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(79, 140, 255, 0.3);
   }
   
   .nav-link:hover::before {

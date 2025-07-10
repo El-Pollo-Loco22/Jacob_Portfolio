@@ -1,0 +1,33 @@
+# Large files
+*.zip
+*.rar
+*.tar.gz
+*.dmg
+*.iso
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Cache directories
+node_modules/
+.cache/
+.tmp/
+.temp/
+
+# Build outputs
+dist/
+build/ 

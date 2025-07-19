@@ -288,6 +288,57 @@
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
+/* Button Outline Glow Effects */
+.button {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover .button-outline {
+  animation: buttonOutlineGlow 2s ease-in-out infinite;
+  transform: scale(1.02);
+  border-width: 2px;
+}
+
+.button:hover .button-text {
+  animation: navColorCycle 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Button outline color cycling animation */
+@keyframes buttonOutlineGlow {
+  0% {
+    border-color: #4f8cff;
+    box-shadow: 
+      0 0 20px rgba(79, 140, 255, 0.4),
+      inset 0 0 20px rgba(79, 140, 255, 0.1);
+  }
+  25% {
+    border-color: #a855f7;
+    box-shadow: 
+      0 0 20px rgba(168, 85, 247, 0.4),
+      inset 0 0 20px rgba(168, 85, 247, 0.1);
+  }
+  50% {
+    border-color: #ec4899;
+    box-shadow: 
+      0 0 20px rgba(236, 72, 153, 0.4),
+      inset 0 0 20px rgba(236, 72, 153, 0.1);
+  }
+  75% {
+    border-color: #f59e0b;
+    box-shadow: 
+      0 0 20px rgba(245, 158, 11, 0.4),
+      inset 0 0 20px rgba(245, 158, 11, 0.1);
+  }
+  100% {
+    border-color: #4f8cff;
+    box-shadow: 
+      0 0 20px rgba(79, 140, 255, 0.4),
+      inset 0 0 20px rgba(79, 140, 255, 0.1);
+  }
+}
+
 /* Mobile Navigation Effects (arrows removed) */
 .w-nav-link {
   transition: all 0.3s ease;
@@ -320,6 +371,11 @@
   .brand::after {
     font-size: 14px;
   }
+  
+  /* Adjust button outline effects for mobile */
+  .button:hover .button-outline {
+    transform: scale(1.01);
+  }
 }
 
 @media (max-width: 480px) {
@@ -332,6 +388,15 @@
   .brand::after {
     font-size: 12px;
     letter-spacing: 0.05em;
+  }
+  
+  /* Further reduce button outline effects for small mobile */
+  .button:hover .button-outline {
+    transform: scale(1.005);
+  }
+  
+  .button:hover .button-text {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -382,6 +447,22 @@
     transition: all 0.4s ease;
   }
   
+  /* Static button outline effects for reduced motion */
+  .button:hover .button-outline {
+    animation: none;
+    border-color: #4f8cff;
+    box-shadow: 
+      0 0 15px rgba(79, 140, 255, 0.4),
+      inset 0 0 15px rgba(79, 140, 255, 0.1);
+    transform: scale(1.02);
+  }
+  
+  .button:hover .button-text {
+    animation: none;
+    color: #4f8cff;
+    text-shadow: 0 0 10px rgba(79, 140, 255, 0.6);
+  }
+  
   .menu-button:hover .menu-icon {
     filter: drop-shadow(0 0 10px rgba(79, 140, 255, 0.6));
   }
@@ -398,6 +479,19 @@
   outline: 2px solid #4f8cff;
   outline-offset: 2px;
   box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
+}
+
+/* Button focus states */
+.button:focus {
+  outline: 2px solid #4f8cff;
+  outline-offset: 2px;
+}
+
+.button:focus .button-outline {
+  border-color: #4f8cff;
+  box-shadow: 
+    0 0 15px rgba(79, 140, 255, 0.5),
+    inset 0 0 15px rgba(79, 140, 255, 0.1);
 }
 
  

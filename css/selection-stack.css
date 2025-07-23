@@ -14,9 +14,9 @@
   opacity: 0;
   transform: translateY(40px);
   width: 100%;
-  height: 50vh;
-  min-height: 400px;
-  padding: 3rem;
+  height: 70vh;
+  min-height: 600px;
+  padding: 8rem 3rem;
   border: none;
   border-radius: 0;
   background: #000000;
@@ -145,9 +145,9 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .select-btn {
-    min-height: 300px;
-    height: 45vh;
-    padding: 2rem;
+    min-height: 450px;
+    height: 65vh;
+    padding: 6rem 2rem;
   }
   
   .btn-text {
@@ -167,9 +167,9 @@
 
 @media (max-width: 480px) {
   .select-btn {
-    min-height: 250px;
-    height: 40vh;
-    padding: 1.5rem;
+    min-height: 350px;
+    height: 60vh;
+    padding: 4rem 1.5rem;
   }
   
   .btn-text {

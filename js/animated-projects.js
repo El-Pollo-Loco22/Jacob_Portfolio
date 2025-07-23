@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Random project modal or action
     function showRandomProjectModal() {
-        const projects = ['got.html', 'cq-1-1.html', 'sookies.html', 'hydn-1-0.html', 'indie-box-office.html'];
+        const projects = ['UX_Case_Study/got.html', 'UX_Case_Study/class-quest-case-study.html', 'sookies.html', 'UX_Case_Study/hydn-1-0.html', 'UX_Case_Study/indie-box-office.html'];
         const randomProject = projects[Math.floor(Math.random() * projects.length)];
         
         // Create a brief loading animation
@@ -288,7 +288,7 @@ window.handleProjectClick = function(projectType) {
 };
 
 window.showRandomProjectModal = function() {
-    const projects = ['got.html', 'cq-1-1.html', 'sookies.html', 'hydn-1-0.html', 'indie-box-office.html'];
+    const projects = ['UX_Case_Study/got.html', 'UX_Case_Study/class-quest-case-study.html', 'sookies.html', 'UX_Case_Study/hydn-1-0.html', 'UX_Case_Study/indie-box-office.html'];
     const randomProject = projects[Math.floor(Math.random() * projects.length)];
     
     // Create a brief loading animation

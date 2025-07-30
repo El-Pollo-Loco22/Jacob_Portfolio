@@ -311,25 +311,52 @@
   </style>
   
   <div class="all-content w-clearfix">
-    <header class="main-column header">
-      <h1 class="logo">Portfolio</h1>
-      <div class="big-tagline w-hidden-small w-hidden-tiny">Web.<br>AI.<br>Design.</div>
+    <header class="main-column header" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../images/pexels-alex-qian-1180283-2474835.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <style>
+        .animated-arrow {
+          position: absolute;
+          right: 30px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 3rem;
+          color: white;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+          animation: arrowFlash 2s ease-in-out infinite;
+          z-index: 10;
+        }
+        @keyframes arrowFlash {
+          0%, 100% {
+            opacity: 0.3;
+            transform: translateY(-50%) translateX(0);
+          }
+          50% {
+            opacity: 1;
+            transform: translateY(-50%) translateX(10px);
+          }
+        }
+      </style>
+      <h1 class="logo" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Portfolio</h1>
+      <div class="animated-arrow">→</div>
       <div class="footer-wrapper w-clearfix">
         <a href="../index.html" class="footer-nav-link w-inline-block home-anim-link">
           <span class="home-icon-wrap"><img src="images/home-icon.svg" alt="Home"><span class="home-label">Home</span></span>
         </a>
         <a href="https://github.com/" class="footer-nav-link w-inline-block">GitHub</a>
-        <a href="https://linkedin.com" class="footer-nav-link w-inline-block">LinkedIn</a>
-        <a href="mailto:contact@example.com" class="footer-nav-link w-inline-block">
+        <a href="https://linkedin.com/in/jacob-h-williams" class="footer-nav-link w-inline-block">LinkedIn</a>
+        <a href="mailto:contact@example.com" class="footer-nav-link w-inline-block" id="chatbot-btn">
           <div class="subscribe">Chat Bot</div>
         </a>
+        <div id="chatbot-window" style="display:none; position:fixed; bottom:90px; right:30px; width:320px; background:#fff; border:1px solid #ccc; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.18); z-index:9999;">
+          <button id="chatbot-close" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:1.5em; color:#888; cursor:pointer;">&times;</button>
+          <div style="padding:32px 16px 16px 16px; font-size:1.1em; font-weight:500; color:#222;">Coming soon</div>
+        </div>
       </div>
     </header>
     <div class="main-column content">
       <nav data-collapse="small" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
         <nav role="navigation" class="nav-menu w-nav-menu">
-          <a href="#" data-tab="articles" class="nav-link w-nav-link w--current">Web & AI</a>
-          <a href="#" data-tab="ux" class="nav-link w-nav-link">UX</a>
+          <a href="#" data-tab="ux" class="nav-link w-nav-link w--current">UX</a>
+          <a href="#" data-tab="articles" class="nav-link w-nav-link">Web & AI</a>
           <a href="#" data-tab="video" class="nav-link w-nav-link">Video</a>
           <a href="#" data-tab="multimedia" class="nav-link w-nav-link">Multimedia</a>
         </nav>
@@ -339,99 +366,35 @@
         </div>
       </nav>
 
-      <!-- Articles Tab Content -->
-      <div id="articles" class="tab-content active">
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+      <!-- Web & AI Tab Content -->
+      <div id="articles" class="tab-content">
+        <a href="../webAndAI/dkb-case-study.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../images/DKB LOGO.png" width="109" alt="DKB Website Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">21st Century Ansel Adams</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">DKB Website: Digital Presence</h2>
+            <p>Explore the DKB Partners website redesign, focusing on professional investor relations and a modern digital presence. See the UX and design strategies that drove the transformation.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2014</div>
-              <div class="article-info-text tag">Camera</div>
-              <div class="article-info-text tag">Nature</div>
+              <div class="article-info-text">2023</div>
+              <div class="article-info-text tag">Web Design</div>
+              <div class="article-info-text tag">Case Study</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../webAndAI/Resterant-rex-Case-study.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../images/Artboard 1.png" width="109" alt="Restaurant Rex Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">The New Canon 500DX</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Restaurant Rex: AI Restaurant Discovery</h2>
+            <p>Discover how AI-powered conversational interfaces can transform restaurant discovery. This case study covers the design and implementation of Restaurant Rex, an innovative digital product.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">February 27, 2014</div>
-              <div class="article-info-text tag">Gear</div>
-              <div class="article-info-text tag">Review</div>
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">AI</div>
+              <div class="article-info-text tag">Web Design</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Grand Canyon Uncharted</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">January 15, 2014</div>
-              <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
-            </div>
-          </section>
-        </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Discovering Lake Titicaca</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
-              <div class="article-info-text tag">Travel</div>
-              <div class="article-info-text tag">South America</div>
-            </div>
-          </section>
-        </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Winter Tulips of Russia</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
-              <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
-            </div>
-          </section>
-        </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Flooded in Maine</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
-              <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
-            </div>
-          </section>
-        </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Portugal, Here I Come</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
-              <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
-            </div>
-          </section>
-        </a>
+
       </div>
 
       <!-- Video Tab Content -->
@@ -542,94 +505,93 @@
 
       <!-- Multimedia Tab Content -->
       <div id="multimedia" class="tab-content">
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../Multi-media page /tropicalia/tropicalia.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper">
+            <img src="../Multi-media page /tropicalia/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Tropicalia Poster" class="thumbnail">
+          </div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Interactive Nature Experiences</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Tropicalia</h2>
+            <p>I was tasked with creating a poster for a new event that takes place this summer that celebrates Brazil’s Cultural Revolution, known as Tropicália. The poster is a vibrant explosion of bold, Brazil-inspired greens, radiant reds, and deep blues that evoke the rich cultural tapestry of Tropicália's music, art, and counterculture. These vivid, high-contrast colors not only capture the essence of Brazil’s spirit but also reflect the eclectic and rebellious nature of the movement, enticing viewers to step into its dynamic and transformative realm. The design expertly blends dynamic color blocking with expressive typography, embodying the revolutionary tone of the event and inviting onlookers to explore the lively and colorful narrative that Tropicália represents.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2014</div>
-              <div class="article-info-text tag">Interactive</div>
-              <div class="article-info-text tag">VR</div>
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">Poster Design</div>
+              <div class="article-info-text tag">Brazil</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../Multi-media page /Super Smash Tournament/Super Smash Tournament.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper">
+            <img src="../Multi-media page /Super Smash Tournament/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Super Smash Tournament" class="thumbnail">
+          </div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">360° Nature Photography</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Super Smash Tournament</h2>
+            <p>I collaborated with an event planning group to develop a visual design for a local video game tournament aimed at boosting attendance at a neighborhood bar. The project encompassed creating promotional materials, event signage, and digital assets to ensure a dynamic and engaging experience for participants and spectators alike. A key feature of the campaign was a motion poster designed in a bold Y2K aesthetic, blending nostalgic early 2000s design trends with vibrant, high-energy visuals. This poster was optimized for both print and social media platforms, helping to generate excitement and drive event awareness.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">February 27, 2014</div>
-              <div class="article-info-text tag">360°</div>
-              <div class="article-info-text tag">Immersive</div>
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">Event Design</div>
+              <div class="article-info-text tag">Y2K</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../Multi-media page /Records and Ricards/Records and Ricards.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper">
+            <img src="../Multi-media page /Records and Ricards/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Records and Ricards" class="thumbnail">
+          </div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Digital Storytelling</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Records and Ricards</h2>
+            <p>The Records and Richards poster uses bold, vibrant reds, greens, and yellows to capture attention and mirror the podcast's energetic, in-your-face style. This color scheme, with its high-contrast and eye-catching hues, reflects the lively and unapologetic tone of the show, instantly grabbing viewers' attention.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">January 15, 2014</div>
-              <div class="article-info-text tag">Digital</div>
-              <div class="article-info-text tag">Storytelling</div>
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">Poster Design</div>
+              <div class="article-info-text tag">Podcast</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../Multi-media page /Portraits /Portraits.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper">
+            <img src="../Multi-media page /Portraits /images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Portraits" class="thumbnail">
+          </div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Discovering Lake Titicaca</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Portraits</h2>
+            <p>Specializing in product and portrait photography, with an eye for detail and a passion for storytelling through imagery. I create visuals that highlight style, personality, and products. From concept to post-production, I ensure every shot captures the essence of my subject and meets professional standards. With expertise in photo editing and retouching, I can enhance images, refine colors, adjust lighting, and maintain a natural yet polished aesthetic. My work is tailored for social media, lookbooks, and marketing campaigns, helping brands and individuals present their best image to the world.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
-              <div class="article-info-text tag">Travel</div>
-              <div class="article-info-text tag">South America</div>
-            </div>
-          </section>
-        </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Winter Tulips of Russia</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
+              <div class="article-info-text">2024</div>
               <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
+              <div class="article-info-text tag">Portraits</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../Multi-media page /Class of 1974 Reunion brochure/Class of 1974 Reunion brochure.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper">
+            <img src="../Multi-media page /Class of 1974 Reunion brochure/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Class of 1974 Reunion Brochure" class="thumbnail">
+          </div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Flooded in Maine</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Class of 1974 Reunion Brochure</h2>
+            <p>For the Charlotte Valley School Alumni Union, I designed a tri-fold reunion brochure that captured the nostalgia and spirit of the alumni community. The brochure featured a clean, elegant layout, incorporating the school colors and modern typography to blend past and present. My role included concept development, layout design, and ensuring print readiness. The final product provided alumni with event details and a schedule. This job strengthened my skills in creating cohesive designs that communicate effectively and resonate with their audience.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
-              <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">Brochure</div>
+              <div class="article-info-text tag">Alumni</div>
             </div>
           </section>
         </a>
-        <a href="#" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="" class="thumbnail"></div>
+        <a href="../Multi-media page /Balls vodka/Balls vodka.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper">
+            <img src="../Multi-media page /Balls vodka/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Balls Vodka" class="thumbnail">
+          </div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h22 class="thumbnail-title">Portugal, Here I Come</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <h2 class="thumbnail-title">Balls Vodka</h2>
+            <p>As a content & Social media manager for Balls Vodka I crafted designs and took photos that embody bold sophistication and playful energy. For their promotional brochure, a modern layout mirrors the brand’s premium quality, while cheeky taglines reflect its daring personality. The brochure highlights Balls Vodka’s smooth flavor and versatile appeal, blending crisp design elements with fun, approachable messaging.</p>
             <div class="article-info-wrapper">
-              <div class="article-info-text">March 2, 2013</div>
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">Branding</div>
               <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Nature</div>
             </div>
           </section>
         </a>
@@ -664,7 +626,7 @@
           </section>
         </a>
         <a href="../UX_Case_Study/indie-box-office.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1576-p-2000.jpg" width="109" alt="Indie Box Office Case Study Thumbnail" class="thumbnail"></div>
+          <div class="image-wrapper"><img src="images/003-p-500.png" width="109" alt="Indie Box Office Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
             <h2 class="thumbnail-title">Indie Box Office: User Flow Analysis</h2>
@@ -819,6 +781,31 @@
         }
       });
     });
+
+    // Chatbot popup functionality
+    (function() {
+      var btn = document.getElementById('chatbot-btn');
+      var win = document.getElementById('chatbot-window');
+      var closeBtn = document.getElementById('chatbot-close');
+      if (btn && win) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          win.style.display = (win.style.display === 'none' || win.style.display === '') ? 'block' : 'none';
+        });
+        // Optional: click outside to close
+        document.addEventListener('mousedown', function(e) {
+          if (win.style.display === 'block' && !win.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+            win.style.display = 'none';
+          }
+        });
+        // Close button
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function() {
+            win.style.display = 'none';
+          });
+        }
+      }
+    })();
   </script>
 </body>
 </html> 

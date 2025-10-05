@@ -1,4 +1,4 @@
-// Contact form enhancement script
+// Contact form enhancement script with confetti
 (function() {
     'use strict';
 
@@ -7,14 +7,15 @@
     });
 
     function enhanceContactForm() {
-        const contactForm = document.querySelector('form[data-name="Contact Form"]');
+        const contactForm = document.querySelector('form[data-name="Contact form"]');
         if (!contactForm) return;
 
         // Add real-time character count
-        const messageField = contactForm.querySelector('textarea[name="Message"]');
+        const messageField = contactForm.querySelector('textarea[name="message"]');
         if (messageField) {
             const charCount = document.createElement('div');
             charCount.className = 'char-count';
+            charCount.style.cssText = 'font-size: 12px; color: #7f8c8d; margin-top: 5px;';
             charCount.textContent = '0 characters';
             messageField.parentNode.appendChild(charCount);
 
@@ -32,10 +33,8 @@
             });
         }
 
-        // Add form submission feedback
+        // Handle form submission with Formspree
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const submitBtn = contactForm.querySelector('input[type="submit"]');
             const originalText = submitBtn.value;
             
@@ -43,29 +42,102 @@
             submitBtn.value = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(function() {
-                showSuccessMessage(contactForm);
-                submitBtn.value = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+            // Let the form submit naturally to Formspree
+            // The success/error handling will be done by monitoring the page state
         });
+
+        // Monitor for successful form submission
+        // Formspree redirects or shows success state, we'll detect this
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' || mutation.type === 'attributes') {
+                    checkForSuccessState();
+                }
+            });
+        });
+
+        // Start observing the form container for changes
+        const formContainer = contactForm.closest('.form-block');
+        if (formContainer) {
+            observer.observe(formContainer, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['style', 'class']
+            });
+        }
+
+        // Check URL parameters for success (in case Formspree redirects back)
+        if (window.location.search.includes('success=true') || 
+            window.location.hash.includes('success')) {
+            triggerConfetti();
+        }
     }
 
-    function showSuccessMessage(form) {
-        const successDiv = document.createElement('div');
-        successDiv.className = 'success-message';
-        successDiv.innerHTML = `
-            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-top: 15px; text-align: center;">
-                <strong>Thank you!</strong> Your message has been sent successfully. I'll get back to you soon.
-            </div>
-        `;
+    function checkForSuccessState() {
+        const successMessage = document.querySelector('.success-message.w-form-done');
+        const errorMessage = document.querySelector('.error-message.w-form-fail');
         
-        form.appendChild(successDiv);
+        // Check if success message is visible
+        if (successMessage && 
+            (successMessage.style.display !== 'none' && 
+             !successMessage.classList.contains('w-hidden'))) {
+            triggerConfetti();
+        }
         
-        // Remove success message after 5 seconds
-        setTimeout(function() {
-            successDiv.remove();
-        }, 5000);
+        // Reset submit button if there's an error
+        if (errorMessage && 
+            (errorMessage.style.display !== 'none' && 
+             !errorMessage.classList.contains('w-hidden'))) {
+            const submitBtn = document.querySelector('input[type="submit"]');
+            if (submitBtn) {
+                submitBtn.value = 'Submit';
+                submitBtn.disabled = false;
+            }
+        }
+    }
+
+    function triggerConfetti() {
+        // Ensure confetti library is loaded
+        if (typeof confetti === 'undefined') {
+            console.warn('Confetti library not loaded');
+            return;
+        }
+
+        // Create a burst of confetti
+        const duration = 3000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 999999 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+
+            // Create confetti from different positions
+            confetti(Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+            }));
+            confetti(Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+            }));
+        }, 250);
+
+        // Add a big burst at the center
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
     }
 })(); 

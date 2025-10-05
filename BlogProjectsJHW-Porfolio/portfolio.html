@@ -351,19 +351,38 @@
         <a href="mailto:contact@example.com" class="footer-nav-link w-inline-block" id="chatbot-btn">
           <div class="subscribe">Chat Bot</div>
         </a>
-        <div id="chatbot-window" style="display:none; position:fixed; bottom:90px; right:30px; width:320px; background:#fff; border:1px solid #ccc; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.18); z-index:9999;">
-          <button id="chatbot-close" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:1.5em; color:#888; cursor:pointer;">&times;</button>
-          <div style="padding:32px 16px 16px 16px; font-size:1.1em; font-weight:500; color:#222;">Coming soon</div>
+        <div id="chatbot-window" style="display:none; position:fixed; bottom:90px; right:30px; width:350px; height:450px; background:#fff; border:1px solid #ccc; border-radius:15px; box-shadow:0 8px 32px rgba(0,0,0,0.15); z-index:9999; font-family: 'Inter', sans-serif;">
+          <div class="chatbot-header" style="padding:16px; background:linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:white; border-radius:15px 15px 0 0; display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-weight:600; font-size:14px;">💼 Portfolio Assistant</div>
+            <button id="chatbot-close" style="background:none; border:none; font-size:20px; color:white; cursor:pointer; opacity:0.8; transition:opacity 0.2s;">&times;</button>
+          </div>
+          <div id="chatbot-messages" style="height:300px; overflow-y:auto; padding:16px; background:#f8f9fa;">
+            <div class="bot-message" style="margin-bottom:12px; padding:8px 12px; background:white; border-radius:12px 12px 12px 4px; font-size:13px; line-height:1.4; box-shadow:0 1px 2px rgba(0,0,0,0.1); color:black;">
+              👋 Hi! I'm here to help you discover Jacob's amazing work. What type of projects interest you most?
+            </div>
+          </div>
+          <div class="chatbot-input-area" style="padding:12px; border-top:1px solid #e9ecef;">
+            <div class="quick-options" id="quick-options" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px;">
+              <button class="quick-btn" data-message="Show me UX design projects" style="background:#e8f5e8; border:1px solid #4caf50; padding:6px 10px; border-radius:16px; font-size:11px; cursor:pointer; color:#2e7d32;">🎨 UX Design</button>
+              <button class="quick-btn" data-message="I want to see AI projects" style="background:#fff3e0; border:1px solid #ff9800; padding:6px 10px; border-radius:16px; font-size:11px; cursor:pointer; color:#e65100;">🤖 AI Work</button>
+              <button class="quick-btn" data-message="Show me video work" style="background:#fce4ec; border:1px solid #e91e63; padding:6px 10px; border-radius:16px; font-size:11px; cursor:pointer; color:#ad1457;">🎬 Videos</button>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="chatbot-input" placeholder="Ask about Jacob's work..." style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:20px; font-size:13px; outline:none; background:white; z-index:10000; position:relative;" autocomplete="off" tabindex="0">
+              <button id="chatbot-send" style="background:#667eea; color:white; border:none; padding:8px 12px; border-radius:20px; cursor:pointer; font-size:13px; z-index:10000; position:relative;">Send</button>
+            </div>
+            <div id="typing-indicator" style="display:none; padding:8px 0; font-size:12px; color:#666; font-style:italic;">✨ AI is thinking...</div>
+          </div>
         </div>
       </div>
     </header>
     <div class="main-column content">
       <nav data-collapse="small" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
         <nav role="navigation" class="nav-menu w-nav-menu">
-          <a href="#" data-tab="ux" class="nav-link w-nav-link w--current">UX</a>
-          <a href="#" data-tab="articles" class="nav-link w-nav-link">Web & AI</a>
+          <a href="#" data-tab="articles" class="nav-link w-nav-link w--current">Web & AI</a>
+          <a href="#" data-tab="ux" class="nav-link w-nav-link">UX</a>
           <a href="#" data-tab="video" class="nav-link w-nav-link">Video</a>
-          <a href="#" data-tab="multimedia" class="nav-link w-nav-link">Multimedia</a>
+          <a href="#" data-tab="mixed-media" class="nav-link w-nav-link">Mixed Media</a>
         </nav>
         <div class="menu-wrapper w-clearfix w-nav-button">
           <div class="menu">MENU</div>
@@ -372,7 +391,37 @@
       </nav>
 
       <!-- Web & AI Tab Content -->
-      <div id="articles" class="tab-content">
+      <div id="articles" class="tab-content active">
+        <a href="../webAndAI/restaurant-rex-whitepaper.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../images/Artboard 1.png" width="109" alt="Restaurant Rex White Paper Thumbnail" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">Restaurant-REX: AI-Powered Dining Discovery</h2>
+            <p>Comprehensive white paper detailing the AI architecture, technical implementation, and product strategy behind Restaurant-REX's conversational dining discovery platform.</p>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">White Paper</div>
+              <div class="article-info-text tag">AI Architecture</div>
+              <div class="article-info-text tag">Product Strategy</div>
+            </div>
+          </section>
+        </a>
+
+        <a href="../webAndAI/the-infinite-menu-whitepaper.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../webAndAI/icons/Artboard 1.webp" width="109" alt="The Infinite Menu White Paper Thumbnail" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">The Infinite Menu: Kitchen Management Platform</h2>
+            <p>Comprehensive white paper exploring The Infinite Menu's integrated approach to kitchen management, combining recipe discovery, meal planning, inventory tracking, and personal organization.</p>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">2024</div>
+              <div class="article-info-text tag">White Paper</div>
+              <div class="article-info-text tag">Kitchen Tech</div>
+              <div class="article-info-text tag">Product Strategy</div>
+            </div>
+          </section>
+        </a>
+
         <a href="../webAndAI/dkb-case-study.html" class="article w-inline-block w-clearfix">
           <div class="image-wrapper"><img src="../images/DKB LOGO.png" width="109" alt="DKB Website Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
@@ -383,19 +432,6 @@
               <div class="article-info-text">2023</div>
               <div class="article-info-text tag">Web Design</div>
               <div class="article-info-text tag">Case Study</div>
-            </div>
-          </section>
-        </a>
-        <a href="../webAndAI/Resterant-rex-Case-study.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="../images/Artboard 1.png" width="109" alt="Restaurant Rex Case Study Thumbnail" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Restaurant Rex: AI Restaurant Discovery</h2>
-            <p>Discover how AI-powered conversational interfaces can transform restaurant discovery. This case study covers the design and implementation of Restaurant Rex, an innovative digital product.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
-              <div class="article-info-text tag">AI</div>
-              <div class="article-info-text tag">Web Design</div>
             </div>
           </section>
         </a>
@@ -508,129 +544,93 @@
         </a>
       </div>
 
-      <!-- Multimedia Tab Content -->
-      <div id="multimedia" class="tab-content">
-        <a href="../Multi-media page /tropicalia/tropicalia.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper">
-            <img src="../Multi-media page /tropicalia/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Tropicalia Poster" class="thumbnail">
-          </div>
+      <!-- Mixed Media Tab Content -->
+      <div id="mixed-media" class="tab-content">
+        <a href="../MultiMedia%20/jacobhwilliams.me-162/index.html" target="_blank" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../MultiMedia%20/jacobhwilliams.me-162/images/Screenshot%202025-10-02%20at%2012.59.27%E2%80%AFPM.png" width="109" alt="Records and Richards" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Tropicalia</h2>
-            <p>I was tasked with creating a poster for a new event that takes place this summer that celebrates Brazil's Cultural Revolution, known as Tropicália. The poster is a vibrant explosion of bold, Brazil-inspired greens, radiant reds, and deep blues that evoke the rich cultural tapestry of Tropicália's music, art, and counterculture. These vivid, high-contrast colors not only capture the essence of Brazil's spirit but also reflect the eclectic and rebellious nature of the movement, enticing viewers to step into its dynamic and transformative realm. The design expertly blends dynamic color blocking with expressive typography, embodying the revolutionary tone of the event and inviting onlookers to explore the lively and colorful narrative that Tropicália represents.</p>
+            <h2 class="thumbnail-title">Records and Richards</h2>
             <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
-              <div class="article-info-text tag">Poster Design</div>
-              <div class="article-info-text tag">Brazil</div>
-            </div>
-          </section>
-        </a>
-        <a href="../Multi-media page /Super Smash Tournament/Super Smash Tournament.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper">
-            <img src="../Multi-media page /Super Smash Tournament/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Super Smash Tournament" class="thumbnail">
-          </div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Super Smash Tournament</h2>
-            <p>I collaborated with an event planning group to develop a visual design for a local video game tournament aimed at boosting attendance at a neighborhood bar. The project encompassed creating promotional materials, event signage, and digital assets to ensure a dynamic and engaging experience for participants and spectators alike. A key feature of the campaign was a motion poster designed in a bold Y2K aesthetic, blending nostalgic early 2000s design trends with vibrant, high-energy visuals. This poster was optimized for both print and social media platforms, helping to generate excitement and drive event awareness.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
-              <div class="article-info-text tag">Event Design</div>
-              <div class="article-info-text tag">Y2K</div>
-            </div>
-          </section>
-        </a>
-        <a href="../Multi-media page /Records and Ricards/Records and Ricards.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper">
-            <img src="../Multi-media page /Records and Ricards/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Records and Ricards" class="thumbnail">
-          </div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Records and Ricards</h2>
-            <p>The Records and Richards poster uses bold, vibrant reds, greens, and yellows to capture attention and mirror the podcast's energetic, in-your-face style. This color scheme, with its high-contrast and eye-catching hues, reflects the lively and unapologetic tone of the show, instantly grabbing viewers' attention.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
-              <div class="article-info-text tag">Poster Design</div>
-              <div class="article-info-text tag">Podcast</div>
-            </div>
-          </section>
-        </a>
-        <a href="../Multi-media page /Portraits /Portraits.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper">
-            <img src="../Multi-media page /Portraits /images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Portraits" class="thumbnail">
-          </div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Portraits</h2>
-            <p>Specializing in product and portrait photography, with an eye for detail and a passion for storytelling through imagery. I create visuals that highlight style, personality, and products. From concept to post-production, I ensure every shot captures the essence of my subject and meets professional standards. With expertise in photo editing and retouching, I can enhance images, refine colors, adjust lighting, and maintain a natural yet polished aesthetic. My work is tailored for social media, lookbooks, and marketing campaigns, helping brands and individuals present their best image to the world.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
-              <div class="article-info-text tag">Photography</div>
-              <div class="article-info-text tag">Portraits</div>
-            </div>
-          </section>
-        </a>
-        <a href="../Multi-media page /Class of 1974 Reunion brochure/Class of 1974 Reunion brochure.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper">
-            <img src="../Multi-media page /Class of 1974 Reunion brochure/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Class of 1974 Reunion Brochure" class="thumbnail">
-          </div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Class of 1974 Reunion Brochure</h2>
-            <p>For the Charlotte Valley School Alumni Union, I designed a tri-fold reunion brochure that captured the nostalgia and spirit of the alumni community. The brochure featured a clean, elegant layout, incorporating the school colors and modern typography to blend past and present. My role included concept development, layout design, and ensuring print readiness. The final product provided alumni with event details and a schedule. This job strengthened my skills in creating cohesive designs that communicate effectively and resonate with their audience.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
-              <div class="article-info-text tag">Brochure</div>
-              <div class="article-info-text tag">Alumni</div>
-            </div>
-          </section>
-        </a>
-        <a href="../Multi-media page /Balls vodka/Balls vodka.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper">
-            <img src="../Multi-media page /Balls vodka/images/65e67a2bcd837a0b5bd3d563-67c6083f29425adc5d1c8e20_small.png" width="109" alt="Balls Vodka" class="thumbnail">
-          </div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Balls Vodka</h2>
-            <p>As a content & Social media manager for Balls Vodka I crafted designs and took photos that embody bold sophistication and playful energy. For their promotional brochure, a modern layout mirrors the brand's premium quality, while cheeky taglines reflect its daring personality. The brochure highlights Balls Vodka's smooth flavor and versatile appeal, blending crisp design elements with fun, approachable messaging.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">2024</div>
+              <div class="article-info-text">Poster</div>
               <div class="article-info-text tag">Branding</div>
-              <div class="article-info-text tag">Photography</div>
+            </div>
+          </section>
+        </a>
+        <a href="../MultiMedia%20/Cara's%20/index.html" target="_blank" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../MultiMedia%20/Cara's%20/images/Screenshot%202025-10-02%20at%2012.37.43%E2%80%AFPM.png" width="109" alt="Cara's Pop-up Menu" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">Cara's Pop-up Restaurant</h2>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">Menu</div>
+              <div class="article-info-text tag">Print Media</div>
+            </div>
+          </section>
+        </a>
+        <a href="../MultiMedia%20/Photo/index.html" target="_blank" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../images/Train.png" width="109" alt="Photography" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">Photography</h2>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">Photos</div>
+              <div class="article-info-text tag">Mixed Media</div>
+            </div>
+          </section>
+        </a>
+        <a href="../MultiMedia%20/Reunionbrochure/index.html" target="_blank" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../MultiMedia%20/Reunionbrochure/images/Screenshot%202025-10-02%20at%2012.31.56%E2%80%AFPM.png" width="109" alt="Reunion Brochure" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">Reunion Brochure</h2>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">Print</div>
+              <div class="article-info-text tag">Brochure</div>
+            </div>
+          </section>
+        </a>
+        
+        <a href="../MultiMedia%20/jacobhwilliams.me-363/index.html" target="_blank" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../MultiMedia%20/jacobhwilliams.me-363/images/Screenshot%202025-10-02%20at%2012.30.57%E2%80%AFPM.png" width="109" alt="3d car" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">3d car</h2>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">Web</div>
+              <div class="article-info-text tag">Archive</div>
+            </div>
+          </section>
+        </a>
+        <a href="../MultiMedia%20/jacobhwilliams.me-49/index.html" target="_blank" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="../images/Artboard%2022.png" width="109" alt="Portfolio v49" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">Balls Vodka Branding</h2>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">Web</div>
+              <div class="article-info-text tag">Archive</div>
             </div>
           </section>
         </a>
       </div>
 
       <!-- UX Tab Content -->
-      <div id="ux" class="tab-content active">
-        <a href="../UX_Case_Study/got.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/Screenshot-2024-04-_1.png" width="109" alt="G.o. Travel Case Study Thumbnail" class="thumbnail"></div>
+      <div id="ux" class="tab-content">
+        <a href="../UX_Case_Study/Class Quest/index.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="images/class-quest-thumbnail.png" width="109" alt="Class Quest Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">G.o. Travel</h2>
-            <p>G.o. Travel is an interactive travel experience platform designed to inspire and guide users through immersive storytelling, dynamic itineraries, and user-centered navigation. This case study explores the UX strategies used to create engaging journeys and seamless exploration for travelers.</p>
+            <h2 class="thumbnail-title">Class Quest: Educational Platform UX</h2>
+            <p>Discover how user experience principles were applied to create an engaging educational platform. This case study covers the design process, user research, and solutions for enhancing learning experiences.</p>
             <div class="article-info-wrapper">
               <div class="article-info-text">March 2, 2024</div>
               <div class="article-info-text tag">Case Study</div>
-              <div class="article-info-text tag">UX</div>
+              <div class="article-info-text tag">Education</div>
             </div>
           </section>
         </a>
-        <a href="../UX_Case_Study/hydn-1-0.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/Big-p-500.png" width="109" alt="HYDN 1.0 Case Study Thumbnail" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">HYDN 1.0: UX/UI Redesign</h2>
-            <p>Read about the redesign process for HYDN 1.0, including research, wireframing, and usability testing to improve user satisfaction and accessibility.</p>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">February 27, 2024</div>
-              <div class="article-info-text tag">Case Study</div>
-              <div class="article-info-text tag">UX/UI</div>
-            </div>
-          </section>
-        </a>
-        <a href="../UX_Case_Study/indie-box-office.html" class="article w-inline-block w-clearfix">
+        <a href="../UX_Case_Study/Indie_Box Office/index.html" class="article w-inline-block w-clearfix">
           <div class="image-wrapper"><img src="images/003-p-500.png" width="109" alt="Indie Box Office Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
@@ -643,16 +643,29 @@
             </div>
           </section>
         </a>
-        <a href="../sookies.html" class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img src="images/1507-p-800.jpg" width="109" alt="Sookies Case Study Thumbnail" class="thumbnail"></div>
+        <a href="../UX_Case_Study/Hadyn/index.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="images/Big-p-500.png" width="109" alt="HYDN 1.0 Case Study Thumbnail" class="thumbnail"></div>
           <section class="article-text-wrapper w-clearfix">
             <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Sookies: Accessibility in UX</h2>
-            <p>Discover how accessibility principles were integrated into the Sookies project, ensuring an inclusive experience for all users through thoughtful UX design.</p>
+            <h2 class="thumbnail-title">HYDN 1.0: UX/UI Redesign</h2>
+            <p>Read about the redesign process for HYDN 1.0, including research, wireframing, and usability testing to improve user satisfaction and accessibility.</p>
+            <div class="article-info-wrapper">
+              <div class="article-info-text">February 27, 2024</div>
+              <div class="article-info-text tag">Case Study</div>
+              <div class="article-info-text tag">UX/UI</div>
+            </div>
+          </section>
+        </a>
+        <a href="../UX_Case_Study/Go taravel/index.html" class="article w-inline-block w-clearfix">
+          <div class="image-wrapper"><img src="images/Screenshot-2024-04-_1.png" width="109" alt="G.o. Travel Case Study Thumbnail" class="thumbnail"></div>
+          <section class="article-text-wrapper w-clearfix">
+            <h2 class="arrow">❯</h2>
+            <h2 class="thumbnail-title">G.o. Travel</h2>
+            <p>G.o. Travel is an interactive travel experience platform designed to inspire and guide users through immersive storytelling, dynamic itineraries, and user-centered navigation. This case study explores the UX strategies used to create engaging journeys and seamless exploration for travelers.</p>
             <div class="article-info-wrapper">
               <div class="article-info-text">March 2, 2024</div>
               <div class="article-info-text tag">Case Study</div>
-              <div class="article-info-text tag">Accessibility</div>
+              <div class="article-info-text tag">UX</div>
             </div>
           </section>
         </a>
@@ -787,30 +800,605 @@
       });
     });
 
-    // Chatbot popup functionality
+    // Gemini-Powered Portfolio Assistant - Auto-opens on page load
     (function() {
-      var btn = document.getElementById('chatbot-btn');
-      var win = document.getElementById('chatbot-window');
-      var closeBtn = document.getElementById('chatbot-close');
+      // Your Gemini API key
+      const GEMINI_API_KEY = 'AIzaSyAgjpAplizXpa98Uuxss15hCtPyWN2V7YQ';
+      const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        initializeChatbot();
+      });
+
+      function initializeChatbot() {
+        var btn = document.getElementById('chatbot-btn');
+        var win = document.getElementById('chatbot-window');
+        var closeBtn = document.getElementById('chatbot-close');
+        var messagesContainer = document.getElementById('chatbot-messages');
+        var input = document.getElementById('chatbot-input');
+        var sendBtn = document.getElementById('chatbot-send');
+        var quickOptions = document.getElementById('quick-options');
+        var typingIndicator = document.getElementById('typing-indicator');
+
+        console.log('Chatbot elements found:', {
+          btn: !!btn,
+          win: !!win,
+          input: !!input,
+          sendBtn: !!sendBtn
+        });
+
+        if (!input) {
+          console.error('Input element not found! Creating new one...');
+          // Create input element if it doesn't exist
+          const inputContainer = document.querySelector('.chatbot-input-area div:last-child');
+          if (inputContainer) {
+            inputContainer.innerHTML = `
+              <input type="text" id="chatbot-input-new" placeholder="Ask about Jacob's work..." style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:20px; font-size:13px; outline:none; background:white; color:black;" autocomplete="off">
+              <button id="chatbot-send-new" style="background:#667eea; color:white; border:none; padding:8px 12px; border-radius:20px; cursor:pointer; font-size:13px;">Send</button>
+            `;
+            input = document.getElementById('chatbot-input-new');
+            sendBtn = document.getElementById('chatbot-send-new');
+          }
+        }
+
+        // Portfolio projects database for AI reference
+        const portfolioProjects = {
+        "web_ai": [
+          {
+            "title": "Restaurant-REX: AI-Powered Dining Discovery",
+            "url": "../webAndAI/restaurant-rex-whitepaper.html",
+            "description": "An exceptional AI architecture showcase featuring conversational dining discovery. This comprehensive white paper demonstrates Jacob's expertise in AI product strategy and technical implementation at the highest level.",
+            "highlights": ["Revolutionary AI conversation design", "Advanced recommendation algorithms", "Cutting-edge technical architecture"],
+            "year": "2024",
+            "type": "web-ai"
+          },
+          {
+            "title": "The Infinite Menu: Kitchen Management Platform",
+            "url": "../webAndAI/the-infinite-menu-whitepaper.html", 
+            "description": "A brilliant integrated platform showcasing Jacob's mastery of complex system design. Features intelligent recipe discovery with 15+ dietary filters and innovative AI-powered suggestions that revolutionize kitchen management.",
+            "highlights": ["Innovative platform design", "Smart AI integration", "Comprehensive user experience"],
+            "year": "2024",
+            "type": "web-ai"
+          },
+          {
+            "title": "DKB Website: Digital Presence Transformation",
+            "url": "../webAndAI/dkb-case-study.html",
+            "description": "A stunning website redesign that showcases Jacob's ability to create sophisticated digital experiences for professional services. The modern approach to investor relations design is absolutely exemplary.",
+            "highlights": ["Professional excellence", "Modern design principles", "Strategic UX thinking"],
+            "year": "2023",
+            "type": "web-ai"
+          }
+        ],
+        "ux": [
+          {
+            "title": "Class Quest: Educational Platform Excellence",
+            "url": "../UX_Case_Study/Class Quest/index.html",
+            "description": "An outstanding example of UX design applied to education. Jacob's user research methodology and design process create truly engaging learning experiences that transform how students interact with educational content.",
+            "highlights": ["Exceptional user research", "Innovative educational UX", "Engagement-focused design"],
+            "year": "2024",
+            "type": "ux"
+          },
+          {
+            "title": "Indie Box Office: User Flow Mastery", 
+            "url": "../UX_Case_Study/Indie_Box Office/index.html",
+            "description": "A masterful demonstration of user flow optimization and interaction design. Jacob's approach to ticketing and event discovery showcases sophisticated understanding of user journey optimization.",
+            "highlights": ["Brilliant user flow design", "Conversion optimization", "Seamless interactions"],
+            "year": "2024",
+            "type": "ux"
+          },
+          {
+            "title": "HYDN 1.0: Complete UX/UI Transformation",
+            "url": "../UX_Case_Study/Hadyn/index.html", 
+            "description": "An impressive complete redesign showcasing Jacob's systematic approach to UX improvement. The research methodology, wireframing process, and usability testing demonstrate world-class design thinking.",
+            "highlights": ["Comprehensive redesign process", "Advanced usability testing", "Accessibility excellence"],
+            "year": "2024",
+            "type": "ux"
+          },
+          {
+            "title": "G.o. Travel: Interactive Experience Innovation",
+            "url": "../UX_Case_Study/Go taravel/index.html",
+            "description": "A breathtaking interactive travel platform that demonstrates Jacob's ability to create immersive digital experiences. The storytelling integration and user-centered navigation are absolutely revolutionary.",
+            "highlights": ["Immersive storytelling", "Innovative navigation", "User-centered design"],
+            "year": "2024",
+            "type": "ux"
+          }
+        ],
+        "video": [
+          {
+            "title": "Whisper Fan: Visual Effects Mastery",
+            "videoId": "1029335312",
+            "description": "An exceptional showcase of Jacob's professional video editing and visual effects expertise. The clean visual compositions and flawless removal of distracting elements demonstrate technical mastery.",
+            "highlights": ["Professional VFX work", "Technical excellence", "Visual composition mastery"],
+            "year": "2024",
+            "type": "video"
+          },
+          {
+            "title": "Johnny Walker: Commercial Production Excellence", 
+            "videoId": "360892149",
+            "description": "Outstanding commercial video production showcasing Jacob's advanced editing techniques and creative vision. The professional workflow and creative approaches are truly impressive.",
+            "highlights": ["Commercial expertise", "Creative editing", "Professional production"],
+            "year": "2024",
+            "type": "video"
+          }
+        ]
+      };
+
+      // System prompt for Gemini AI - Positive and focused
+      const systemPrompt = `You are Jacob Williams' enthusiastic portfolio assistant. Your ONLY role is to help visitors discover Jacob's amazing projects or suggest they contact Jacob directly.
+
+      STRICT GUIDELINES:
+      1. ALWAYS be extremely positive about Jacob's work - use words like "exceptional", "outstanding", "brilliant", "masterful"
+      2. ONLY provide two types of responses:
+         - Recommend specific projects from Jacob's portfolio
+         - Suggest contacting Jacob via the contact page
+      3. Keep responses to 2-3 sentences maximum
+      4. If asked about anything not related to Jacob's projects, redirect to either viewing projects or contacting Jacob
+      5. Never give negative feedback or criticism about anything
+      6. Always sound excited and enthusiastic about Jacob's work
+
+      JACOB'S PORTFOLIO: ${JSON.stringify(portfolioProjects)}
+
+      RESPONSE FORMATS:
+      - For project recommendations: "Jacob's [project name] is absolutely [positive adjective]! It showcases [brief highlight]. You should definitely check it out!"
+      - For contact suggestions: "For more detailed information about Jacob's work, I'd recommend reaching out to him directly through the contact page!"
+
+      Remember: Only recommend projects or suggest contact. Nothing else!`;
+
+        let conversationHistory = [];
+        let hasShownWelcome = false;
+
+        // Setup event listeners and functionality
+        setupEventListeners();
+        
+        // Auto-open chatbot when page loads
+        setTimeout(() => {
+          if (win) {
+            win.style.display = 'block';
+            if (!hasShownWelcome) {
+              showInitialWelcome();
+              hasShownWelcome = true;
+            }
+            // Focus the input field after opening
+            setTimeout(() => {
+              if (input) {
+                input.focus();
+                console.log('Input focused');
+              }
+            }, 500);
+          }
+        }, 2000); // Opens after 2 seconds
+
+        function setupEventListeners() {
+          // Event Listeners
+          if (btn && win) {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              const isOpening = win.style.display === 'none' || win.style.display === '';
+              win.style.display = isOpening ? 'block' : 'none';
+              
+              // Focus input when opening
+              if (isOpening && input) {
+                setTimeout(() => {
+                  input.focus();
+                  console.log('Input focused after manual open');
+                }, 100);
+              }
+            });
+            
+            document.addEventListener('mousedown', function(e) {
+              if (win.style.display === 'block' && !win.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+                win.style.display = 'none';
+              }
+            });
+          }
+          
+          if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+              if (win) win.style.display = 'none';
+            });
+          }
+          
+          if (sendBtn) {
+            sendBtn.addEventListener('click', function() {
+              console.log('Send button clicked');
+              sendMessage();
+            });
+          }
+          
+          if (input) {
+            // Ensure input can be focused
+            input.addEventListener('click', function() {
+              this.focus();
+              console.log('Input clicked and focused');
+            });
+            
+            input.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                console.log('Enter key pressed');
+                sendMessage();
+              }
+            });
+            
+            // Also add keydown event as backup
+            input.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+              }
+            });
+            
+            // Debug: Log when input receives focus
+            input.addEventListener('focus', function() {
+              console.log('Input field focused successfully');
+            });
+            
+            // Debug: Log input events
+            input.addEventListener('input', function() {
+              console.log('Input value changed:', this.value);
+            });
+          }
+          
+          // Quick option buttons
+          if (quickOptions) {
+            quickOptions.addEventListener('click', function(e) {
+              if (e.target.classList.contains('quick-btn')) {
+                const message = e.target.getAttribute('data-message');
+                addMessage(message, false);
+                handleUserMessage(message);
+              }
+            });
+          }
+        }
+
+      function showInitialWelcome() {
+        setTimeout(() => {
+          addMessage("✨ Welcome to Jacob's portfolio! I'm here to help you discover his incredible work. What type of projects interest you?", true);
+          
+          // Add category suggestions
+          setTimeout(() => {
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.style.cssText = 'margin:8px 0; display:flex; flex-wrap:wrap; gap:6px;';
+            suggestionDiv.innerHTML = `
+              <button class="welcome-btn" data-message="Show me Jacob's best UX design work" style="background:#e8f5e8; border:1px solid #4caf50; padding:8px 12px; border-radius:20px; font-size:12px; cursor:pointer; color:#2e7d32; font-weight:500;">🎨 Amazing UX Work</button>
+              <button class="welcome-btn" data-message="I want to see Jacob's AI projects" style="background:#fff3e0; border:1px solid #ff9800; padding:8px 12px; border-radius:20px; font-size:12px; cursor:pointer; color:#e65100; font-weight:500;">🤖 Brilliant AI Projects</button>
+              <button class="welcome-btn" data-message="Show me Jacob's video portfolio" style="background:#fce4ec; border:1px solid #e91e63; padding:8px 12px; border-radius:20px; font-size:12px; cursor:pointer; color:#ad1457; font-weight:500;">🎬 Professional Videos</button>
+            `;
+            
+            suggestionDiv.querySelectorAll('.welcome-btn').forEach(btn => {
+              btn.addEventListener('click', () => {
+                const message = btn.getAttribute('data-message');
+                addMessage(message, false);
+                handleUserMessage(message);
+              });
+            });
+            
+            messagesContainer.appendChild(suggestionDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          }, 1000);
+        }, 500);
+      }
+
+      async function callGeminiAPI(userMessage) {
+        try {
+          showTypingIndicator();
+          
+          // Build conversation context
+          const contextualPrompt = `${systemPrompt}\n\nUser message: "${userMessage}"\n\nRemember: Only recommend Jacob's projects positively or suggest contacting Jacob. Be enthusiastic and brief.`;
+
+          const requestBody = {
+            contents: [{
+              parts: [{
+                text: contextualPrompt
+              }]
+            }],
+            generationConfig: {
+              temperature: 0.8,
+              topK: 40,
+              topP: 0.9,
+              maxOutputTokens: 150,
+            },
+            safetySettings: [
+              {
+                category: "HARM_CATEGORY_HARASSMENT",
+                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+              },
+              {
+                category: "HARM_CATEGORY_HATE_SPEECH", 
+                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+              },
+              {
+                category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                threshold: "BLOCK_MEDIUM_AND_ABOVE" 
+              },
+              {
+                category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+              }
+            ]
+          };
+
+          const response = await fetch(GEMINI_API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody)
+          });
+
+          if (!response.ok) {
+            throw new Error(`Gemini API error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          const aiResponse = data.candidates[0].content.parts[0].text;
+
+          // Update conversation history
+          conversationHistory.push({
+            user: userMessage,
+            assistant: aiResponse,
+            timestamp: new Date().toISOString()
+          });
+
+          return aiResponse;
+
+        } catch (error) {
+          console.error('Gemini API Error:', error);
+          return "Jacob's work is absolutely incredible! I'd recommend checking out his UX projects or AI work. You can also contact Jacob directly through the contact page for more details! 🚀";
+        } finally {
+          hideTypingIndicator();
+        }
+      }
+
+      function showTypingIndicator() {
+        if (typingIndicator) {
+          typingIndicator.style.display = 'block';
+        }
+      }
+
+      function hideTypingIndicator() {
+        if (typingIndicator) {
+          typingIndicator.style.display = 'none';
+        }
+      }
+
+      function extractProjectRecommendations(aiResponse) {
+        const projects = [];
+        const allProjects = [
+          ...portfolioProjects.web_ai,
+          ...portfolioProjects.ux, 
+          ...portfolioProjects.video
+        ];
+
+        // Look for project mentions in AI response
+        allProjects.forEach(project => {
+          const titleWords = project.title.toLowerCase().split(' ').slice(0, 3);
+          if (titleWords.some(word => aiResponse.toLowerCase().includes(word))) {
+            projects.push(project);
+          }
+        });
+
+        // If no specific projects mentioned, suggest based on categories
+        if (projects.length === 0) {
+          const message = aiResponse.toLowerCase();
+          if (message.includes('ux') || message.includes('design')) {
+            projects.push(portfolioProjects.ux[0]);
+          } else if (message.includes('ai') || message.includes('tech')) {
+            projects.push(portfolioProjects.web_ai[0]);
+          } else if (message.includes('video') || message.includes('multimedia')) {
+            projects.push(portfolioProjects.video[0]);
+          }
+        }
+
+        return projects.slice(0, 2); // Max 2 projects at a time
+      }
+
+      function shouldShowContactButton(aiResponse) {
+        const contactKeywords = ['contact', 'reach out', 'get in touch', 'talk to jacob', 'connect'];
+        return contactKeywords.some(keyword => aiResponse.toLowerCase().includes(keyword));
+      }
+
+      function addMessage(text, isBot = true, projects = [], showContact = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = isBot ? 'bot-message' : 'user-message';
+        
+        const baseStyle = 'margin-bottom:12px; padding:8px 12px; border-radius:12px; font-size:13px; line-height:1.4; max-width:85%; color:black;';
+        const botStyle = baseStyle + 'background:white; border-radius:12px 12px 12px 4px; box-shadow:0 1px 2px rgba(0,0,0,0.1);';
+        const userStyle = baseStyle + 'background:#667eea; color:white; border-radius:12px 12px 4px 12px; margin-left:auto; text-align:right;';
+        
+        messageDiv.style.cssText = isBot ? botStyle : userStyle;
+        messageDiv.textContent = text;
+        
+        messagesContainer.appendChild(messageDiv);
+
+        // Add project recommendation cards
+        if (projects.length > 0) {
+          projects.forEach(project => {
+            const projectDiv = document.createElement('div');
+            projectDiv.style.cssText = `
+              margin:8px 0; padding:12px; background:linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%); 
+              border-radius:12px; border-left:4px solid #667eea; cursor:pointer; 
+              transition:all 0.3s ease; box-shadow:0 3px 10px rgba(0,0,0,0.1);
+            `;
+            
+            projectDiv.innerHTML = `
+              <div style="font-weight:700; font-size:14px; color:#1a237e; margin-bottom:6px;">✨ ${project.title}</div>
+              <div style="font-size:12px; color:#424242; line-height:1.4; margin-bottom:8px;">${project.description.slice(0, 120)}...</div>
+              <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:6px;">
+                ${project.highlights.slice(0, 2).map(highlight => 
+                  `<span style="background:#4caf50; color:white; padding:3px 8px; border-radius:12px; font-size:10px; font-weight:500;">⭐ ${highlight}</span>`
+                ).join('')}
+              </div>
+              <div style="color:#667eea; font-size:11px; font-weight:600;">Click to explore →</div>
+            `;
+            
+            projectDiv.addEventListener('click', () => {
+              if (project.videoId) {
+                // Handle video projects
+                const videoArticles = document.querySelectorAll('.video-article');
+                const targetVideo = Array.from(videoArticles).find(article => 
+                  article.getAttribute('data-video-id') === project.videoId
+                );
+                if (targetVideo) {
+                  targetVideo.click();
+                  addMessage(`🎬 Opening ${project.title}! Enjoy this incredible showcase of Jacob's talent!`, true);
+                }
+              } else {
+                window.open(project.url, '_blank');
+                addMessage(`🚀 Opening ${project.title}! This is going to blow you away - Jacob's work is absolutely exceptional!`, true);
+              }
+            });
+            
+            projectDiv.addEventListener('mouseenter', () => {
+              projectDiv.style.transform = 'translateY(-2px) scale(1.02)';
+              projectDiv.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.3)';
+            });
+            
+            projectDiv.addEventListener('mouseleave', () => {
+              projectDiv.style.transform = 'translateY(0) scale(1)';
+              projectDiv.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
+            });
+            
+            messagesContainer.appendChild(projectDiv);
+          });
+        }
+
+        // Add contact button if suggested
+        if (showContact) {
+          const contactDiv = document.createElement('div');
+          contactDiv.style.cssText = 'margin:12px 0; text-align:center;';
+          contactDiv.innerHTML = `
+            <button id="contact-jacob-btn" style="background:linear-gradient(135deg, #4caf50 0%, #45a049 100%); color:white; border:none; padding:12px 24px; border-radius:25px; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 4px 15px rgba(76, 175, 80, 0.3); transition:all 0.3s ease;">
+              💬 Contact Jacob Directly
+            </button>
+          `;
+          
+          contactDiv.querySelector('#contact-jacob-btn').addEventListener('click', () => {
+            window.open('../contact.html', '_blank');
+            addMessage("🎉 Perfect! Jacob would love to hear from you. Check out the contact page!", true);
+          });
+          
+          messagesContainer.appendChild(contactDiv);
+        }
+
+        // Scroll to bottom
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      async function handleUserMessage(message) {
+        const aiResponse = await callGeminiAPI(message);
+        const recommendedProjects = extractProjectRecommendations(aiResponse);
+        const shouldContact = shouldShowContactButton(aiResponse);
+        
+        setTimeout(() => {
+          addMessage(aiResponse, true, recommendedProjects, shouldContact);
+        }, 800);
+      }
+
+      async function sendMessage() {
+        console.log('sendMessage function called'); // Debug log
+        console.log('Input element:', input); // Debug log
+        
+        if (!input) {
+          console.error('Input element not found!');
+          return;
+        }
+        
+        const message = input.value.trim();
+        console.log('Message value:', message); // Debug log
+        
+        if (!message) {
+          console.log('Message is empty, returning');
+          return;
+        }
+        
+        addMessage(message, false);
+        input.value = '';
+        
+        await handleUserMessage(message);
+      }
+
+      // Event Listeners - Set up all elements individually
       if (btn && win) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
-          win.style.display = (win.style.display === 'none' || win.style.display === '') ? 'block' : 'none';
+          const isOpening = win.style.display === 'none' || win.style.display === '';
+          win.style.display = isOpening ? 'block' : 'none';
+          
+          // Focus input when opening
+          if (isOpening && input) {
+            setTimeout(() => {
+              input.focus();
+              console.log('Input focused after manual open');
+            }, 100);
+          }
         });
-        // Optional: click outside to close
+        
         document.addEventListener('mousedown', function(e) {
           if (win.style.display === 'block' && !win.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
             win.style.display = 'none';
           }
         });
-        // Close button
-        if (closeBtn) {
-          closeBtn.addEventListener('click', function() {
-            win.style.display = 'none';
-          });
-        }
       }
-    })();
+      
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          if (win) win.style.display = 'none';
+        });
+      }
+      
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function() {
+          console.log('Send button clicked'); // Debug log
+          sendMessage();
+        });
+      }
+      
+      if (input) {
+        // Ensure input can be focused
+        input.addEventListener('click', function() {
+          this.focus();
+          console.log('Input clicked and focused');
+        });
+        
+        input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            console.log('Enter key pressed'); // Debug log
+            sendMessage();
+          }
+        });
+        
+        // Also add keydown event as backup
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+          }
+        });
+        
+        // Debug: Log when input receives focus
+        input.addEventListener('focus', function() {
+          console.log('Input field focused successfully');
+        });
+        
+        // Debug: Log input events
+        input.addEventListener('input', function() {
+          console.log('Input value changed:', this.value);
+        });
+      }
+      
+      // Quick option buttons
+      if (quickOptions) {
+        quickOptions.addEventListener('click', function(e) {
+          if (e.target.classList.contains('quick-btn')) {
+            const message = e.target.getAttribute('data-message');
+            addMessage(message, false);
+            handleUserMessage(message);
+          }
+        });
+        }
+      } // End of initializeChatbot function
+    })(); // End of IIFE
   </script>
 </body>
 </html>

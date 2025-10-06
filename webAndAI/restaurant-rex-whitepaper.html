@@ -44,6 +44,13 @@
           </a>
         </div>
         <nav role="navigation" class="mobile-nav-menu w-nav-menu">
+          <div class="mobile-menu-close">
+            <button class="close-button" aria-label="Close menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
           <a href="../index.html" class="nav-link w-nav-link">Home</a>
           <a href="../BlogProjectsJHW-Porfolio/portfolio.html" class="nav-link w-nav-link">Portfolio</a>
           <a href="../about.html" class="nav-link w-nav-link">About</a>
@@ -445,6 +452,62 @@
           }
         }, 500);
       });
+    });
+
+    // Mobile hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.querySelector('.menu-button');
+      const mobileMenu = document.querySelector('.mobile-nav-menu');
+      const closeButton = document.querySelector('.close-button');
+      const body = document.body;
+      
+      function closeMenu() {
+        mobileMenu.classList.remove('w--open');
+        menuButton.classList.remove('active');
+        body.style.overflow = '';
+      }
+      
+      function openMenu() {
+        mobileMenu.classList.add('w--open');
+        menuButton.classList.add('active');
+        body.style.overflow = 'hidden';
+      }
+      
+      if (menuButton && mobileMenu) {
+        // Open menu when hamburger is clicked
+        menuButton.addEventListener('click', function() {
+          if (mobileMenu.classList.contains('w--open')) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+        
+        // Close menu when close button is clicked
+        if (closeButton) {
+          closeButton.addEventListener('click', closeMenu);
+        }
+        
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            closeMenu();
+          }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && mobileMenu.classList.contains('w--open')) {
+            closeMenu();
+          }
+        });
+      }
     });
 
     // Smooth scrolling for anchor links

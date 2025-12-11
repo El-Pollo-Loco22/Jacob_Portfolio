@@ -1,0 +1,55 @@
+/**
+ * Hero 3D Scene Styles
+ * Styles for the Three.js canvas container in the hero section
+ */
+
+/* Container for 3D canvas */
+#hero-3d-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+}
+
+#hero-3d-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Subtle gradient overlay for visual depth */
+.hero-3d-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(5, 5, 5, 0.2) 0%,
+      rgba(5, 5, 5, 0) 50%,
+      rgba(5, 5, 5, 0.2) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+  #hero-3d-container {
+    width: 100%;
+    min-height: 50vh;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #hero-3d-container {
+    min-height: 300px;
+  }
+}

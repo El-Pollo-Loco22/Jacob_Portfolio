@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hero Section - HTML & CSS</title>
+  <style>
+    /* ============================================
+       CSS VARIABLES
+       ============================================ */
+    :root {
+      --light-outline: #eff9fc1a;
+      --background: #0c0c0c;
+      --real-black: #050505;
+    }
+
+    /* ============================================
+       HERO SECTION STYLES
+       ============================================ */
+    .home-hero {
+      border-bottom: 1px none var(--light-outline);
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 0;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-hero.small {
+      border-bottom-style: solid;
+      min-height: 90vh;
+      padding-top: 0;
+    }
+
+    /* ============================================
+       BACKGROUND WRAPPER
+       ============================================ */
+    .background-wrapper {
+      width: 100%;
+      position: absolute;
+      inset: 0% 0% 0% auto;
+      overflow: hidden;
+    }
+
+    .background-wrapper.half-page {
+      z-index: 10;
+      width: 50%;
+    }
+
+    .background {
+      background-image: url('../images/aidan-dominguez-kfENpXBUB0s-unsplash.jpg');
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      inset: 0%;
+    }
+
+    .overlay {
+      z-index: 6;
+      background-color: #04060a80;
+      position: absolute;
+      inset: 0%;
+    }
+
+    .overlay.light {
+      background-color: #fff0;
+    }
+
+    /* ============================================
+       GRID WRAPPER
+       ============================================ */
+    .grid-wrapper {
+      z-index: 25;
+      grid-column-gap: 0px;
+      grid-row-gap: 16px;
+      grid-template-rows: auto;
+      grid-template-columns: minmax(5vw, 1fr) minmax(auto, 1400px) minmax(5vw, 1fr);
+      grid-auto-columns: 1fr;
+      width: 100%;
+      margin-top: 0%;
+      margin-bottom: 0%;
+      padding-top: 0%;
+      display: grid;
+      position: relative;
+    }
+
+    /* ============================================
+       HERO CONTENT
+       ============================================ */
+    .hero-content {
+      z-index: 20;
+      grid-column-gap: 0px;
+      grid-row-gap: 50px;
+      color: #fff;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      grid-auto-columns: 1fr;
+      margin-top: 80px;
+      padding-top: 80px;
+      padding-bottom: 100px;
+      display: grid;
+      position: relative;
+    }
+
+    .content-wrapper {
+      z-index: 20;
+      grid-column-gap: 8px;
+      grid-row-gap: 16px;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-auto-columns: 1fr;
+      width: 100%;
+      padding-top: 0%;
+      padding-bottom: 0%;
+      display: grid;
+      position: relative;
+    }
+
+    .home-hero-intro {
+      grid-column-gap: 16px;
+      grid-row-gap: 48px;
+      text-align: left;
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr;
+      grid-auto-columns: 1fr;
+      place-content: space-between start;
+      justify-items: start;
+      width: 100%;
+      padding-right: 0;
+      display: grid;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .cs_heading_3.large {
+      letter-spacing: -.01em;
+      font-family: Thicccboi, sans-serif;
+      font-size: 52px;
+    }
+
+    .hero-title {
+      max-width: 500px;
+    }
+
+    /* ============================================
+       ROTATING TITLE (from rotating-title.css)
+       ============================================ */
+    .rotating-title {
+      position: relative;
+      display: block;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: inherit;
+      min-height: 1.2em;
+      overflow: visible;
+      width: 100%;
+      margin: 0.5rem 0;
+      line-height: 1.1;
+    }
+
+    .rotating-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: none;
+      white-space: nowrap;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+
+    .rotating-text:first-child {
+      display: block;
+      opacity: 1;
+    }
+
+    .rotating-text.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Color variations for different titles */
+    .rotating-text:nth-child(1) {
+      color: #4f8cff !important;
+      text-shadow: 0 0 20px rgba(79, 140, 255, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .rotating-text:nth-child(2) {
+      color: #a855f7 !important;
+      text-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .rotating-text:nth-child(3) {
+      color: #ec4899 !important;
+      text-shadow: 0 0 20px rgba(236, 72, 153, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .rotating-text:nth-child(4) {
+      color: #f59e0b !important;
+      text-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ============================================
+       CIRCLE LINK BUTTON
+       ============================================ */
+    .circle-link {
+      z-index: 100;
+      border: 1px solid var(--light-outline);
+      background-color: var(--background);
+      color: #fff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 0;
+      margin-right: -70px;
+      font-size: 10px;
+      text-decoration: none;
+      display: flex;
+      position: relative;
+      transform: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    .circle-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: transparent;
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+
+    .circle-link:hover {
+      transform: scale(1.1) !important;
+      animation: colorCycle 2s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .circle-link:hover .button-text {
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      animation: textPulse 2s ease-in-out infinite;
+    }
+
+    .circle-link:hover .scroll-link-outline {
+      animation: outlineRotate 2s linear infinite;
+    }
+
+    .circle-link:hover::before {
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: backgroundPulse 2s ease-in-out infinite;
+    }
+
+    .button-text {
+      z-index: 25;
+      position: relative;
+    }
+
+    .scroll-link-outline {
+      border: 1px dashed var(--light-outline);
+      border-radius: 100%;
+      width: 150%;
+      height: 150%;
+      display: flex;
+      position: absolute;
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    @keyframes colorCycle {
+      0% {
+        border-color: #4f8cff;
+        box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
+      }
+      25% {
+        border-color: #a855f7;
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+      }
+      50% {
+        border-color: #ec4899;
+        box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+      }
+      75% {
+        border-color: #f59e0b;
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+      }
+      100% {
+        border-color: #4f8cff;
+        box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
+      }
+    }
+
+    @keyframes textPulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+      }
+    }
+
+    @keyframes outlineRotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes backgroundPulse {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE STYLES
+       ============================================ */
+    @media (max-width: 768px) {
+      .rotating-title {
+        font-size: 2.2rem;
+        min-height: 1.2em;
+        margin: 0.4rem 0;
+      }
+      
+      .rotating-text {
+        font-size: 2.2rem;
+      }
+      
+      .circle-link:hover {
+        transform: scale(1.05) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .rotating-title {
+        font-size: 1.8rem;
+        min-height: 1.1em;
+        margin: 0.3rem 0;
+      }
+      
+      .rotating-text {
+        font-size: 1.8rem;
+        letter-spacing: 0.01em;
+      }
+      
+      .circle-link:hover {
+        transform: scale(1.03) !important;
+      }
+    }
+
+    /* ============================================
+       ACCESSIBILITY
+       ============================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .rotating-text {
+        transition: opacity 0.3s ease;
+        transform: none;
+      }
+      
+      .circle-link:hover {
+        animation: none;
+        border-color: #4f8cff;
+        box-shadow: 0 0 15px rgba(79, 140, 255, 0.3);
+      }
+      
+      .circle-link:hover .button-text {
+        animation: none;
+      }
+      
+      .circle-link:hover .scroll-link-outline {
+        animation: none;
+      }
+    }
+
+    .circle-link:focus {
+      outline: 3px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ============================================
+       HERO SECTION HTML
+       ============================================ -->
+  <div class="home-hero small">
+    <div class="grid-wrapper">
+      <div id="w-node-_511843fc-9fd2-ae21-6cb4-13a92f27abbe-5bd3d5a0" data-w-id="511843fc-9fd2-ae21-6cb4-13a92f27abbe" class="background-wrapper half-page">
+        <div class="background">
+          <div class="overlay light"></div>
+        </div>
+      </div>
+      <div id="w-node-_511843fc-9fd2-ae21-6cb4-13a92f27abc2-5bd3d5a0" class="hero-content">
+        <div id="w-node-_511843fc-9fd2-ae21-6cb4-13a92f27abc3-5bd3d5a0" class="content-wrapper">
+          <div id="w-node-_511843fc-9fd2-ae21-6cb4-13a92f27abc4-5bd3d5a0" class="home-hero-intro">
+            <div id="w-node-_511843fc-9fd2-ae21-6cb4-13a92f27abc5-5bd3d5a0" class="hero-title">
+              <h1 class="cs_heading_3 large">Welcome! I'm Jacob, a Brooklyn-based</h1>
+              <div class="rotating-title">
+                <span class="rotating-text active">UX Designer</span>
+                <span class="rotating-text">Tech Creative</span>
+                <span class="rotating-text">Prompt Engineer</span>
+                <span class="rotating-text">Multi-Media Artist</span>
+              </div>
+            </div>
+            <a id="w-node-e76785cc-3a94-6a68-6ed3-173356e71608-5bd3d5a0" data-w-id="e76785cc-3a94-6a68-6ed3-173356e71608" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);border-color:rgba(255,255,255,0.1)" href="#Work" class="circle-link w-inline-block">
+              <div class="button-text">View work</div>
+              <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="scroll-link-outline"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

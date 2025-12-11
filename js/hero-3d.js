@@ -1,6 +1,6 @@
 /**
  * Hero 3D Scene - Three.js Implementation
- * Interactive 3D geometric shapes with particles, mouse parallax,
+ * Interactive 3D GLTF models with particles, mouse parallax,
  * and hover-triggered mode transformations
  */
 
@@ -17,11 +17,32 @@
   let targetX = 0, targetY = 0;
   let currentMode = 'default';
   let autoRotateInterval = null;
+  let modelsLoaded = false;
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
   // Color palette
   const colors = [0xd4a574, 0x4f8cff, 0xa855f7, 0xec4899, 0xd4a574, 0x4f8cff];
+
+  // GLTF model paths configuration
+  const modelPaths = [
+    '3DAssts/toy_rocket_4k_free_3d_model_gltf/scene.gltf',
+    '3DAssts/telephone_gltf/scene.gltf',
+    '3DAssts/mens_bust_gltf/scene.gltf',
+    '3DAssts/radio_retrofuturism_lowpoly_gltf/scene.gltf',
+    '3DAssts/space_invaders_gltf/scene.gltf',
+    '3DAssts/obj_gltf/scene.gltf'
+  ];
+
+  // Original shape positions for initial placement
+  const shapeConfigs = [
+    { position: [-2, 1.5, 0] },
+    { position: [2, -1, -1] },
+    { position: [0, -2, 0] },
+    { position: [-1.5, -1, 1] },
+    { position: [2.5, 2, -1] },
+    { position: [-2.5, -1.5, 0] }
+  ];
 
   // Mode configurations for hover transformations
   const modeConfigs = {
@@ -197,6 +218,92 @@
     update();
   }
 
+  // Normalize GLTF model to fit within a 1-unit bounding box
+  function normalizeModel(gltfScene) {
+    const box = new THREE.Box3().setFromObject(gltfScene);
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+
+    if (maxDim > 0) {
+      const scale = 1.0 / maxDim;
+      gltfScene.scale.setScalar(scale);
+
+      // Recalculate bounding box after scaling
+      box.setFromObject(gltfScene);
+      const center = box.getCenter(new THREE.Vector3());
+
+      // Center the model
+      gltfScene.position.sub(center);
+    }
+
+    return gltfScene;
+  }
+
+  // Apply PBR material to GLTF model
+  function applyMaterialToModel(model, index) {
+    const color = colors[index % colors.length];
+    model.traverse((child) => {
+      if (child.isMesh) {
+        child.material = new THREE.MeshStandardMaterial({
+          color: color,
+          metalness: 0.6,
+          roughness: 0.3,
+          emissive: color,
+          emissiveIntensity: 0.2
+        });
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+  }
+
+  // Load a single GLTF model
+  function loadModel(path) {
+    return new Promise((resolve, reject) => {
+      const loader = new THREE.GLTFLoader();
+      loader.load(
+        path,
+        (gltf) => {
+          console.log(`Loaded model: ${path}`);
+          resolve(gltf.scene);
+        },
+        undefined,
+        (error) => {
+          console.error(`Failed to load model: ${path}`, error);
+          reject(error);
+        }
+      );
+    });
+  }
+
+  // Show loading indicator
+  function showLoadingIndicator(container) {
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'hero-3d-loading';
+    loadingDiv.style.cssText = `
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #d4a574;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      opacity: 0.8;
+      z-index: 10;
+    `;
+    loadingDiv.textContent = 'Loading 3D models...';
+    container.appendChild(loadingDiv);
+    return loadingDiv;
+  }
+
+  // Hide loading indicator
+  function hideLoadingIndicator() {
+    const loadingDiv = document.getElementById('hero-3d-loading');
+    if (loadingDiv) {
+      loadingDiv.remove();
+    }
+  }
+
   function init() {
     const container = document.getElementById('hero-3d-container');
     if (!container) {
@@ -229,9 +336,28 @@
     // Lighting
     setupLights();
 
-    // Create geometric objects
-    meshes = createGeometricObjects();
+    // Show loading indicator
+    const loadingIndicator = showLoadingIndicator(container);
 
+    // Try to load GLTF models, fall back to geometric shapes on failure
+    Promise.all(modelPaths.map(path => loadModel(path)))
+      .then(models => {
+        hideLoadingIndicator();
+        meshes = createGLTFObjects(models);
+        modelsLoaded = true;
+        console.log('All GLTF models loaded successfully');
+        finishInit(container);
+      })
+      .catch(error => {
+        hideLoadingIndicator();
+        console.warn('Failed to load GLTF models, falling back to geometric shapes:', error);
+        meshes = createGeometricObjects();
+        modelsLoaded = false;
+        finishInit(container);
+      });
+  }
+
+  function finishInit(container) {
     // Create particle system
     particles = createParticles();
 
@@ -249,7 +375,7 @@
     // Start animation loop
     animate();
 
-    console.log('Hero 3D scene initialized');
+    console.log('Hero 3D scene initialized with', modelsLoaded ? 'GLTF models' : 'geometric shapes');
   }
 
   function setupLights() {
@@ -268,6 +394,44 @@
     scene.add(dirLight2);
   }
 
+  // Create objects from GLTF models
+  function createGLTFObjects(models) {
+    const objects = [];
+
+    models.forEach((model, index) => {
+      // Create a container group for the model
+      const container = new THREE.Group();
+
+      // Clone and normalize the model
+      const normalizedModel = normalizeModel(model.clone());
+
+      // Apply material
+      applyMaterialToModel(normalizedModel, index);
+
+      // Add normalized model to container
+      container.add(normalizedModel);
+
+      // Set initial position
+      const config = shapeConfigs[index];
+      container.position.set(...config.position);
+
+      // Set userData for animations
+      container.userData = {
+        originalScale: 1,
+        isAnimating: false,
+        index: index,
+        baseRotationX: 0,
+        baseRotationY: 0
+      };
+
+      scene.add(container);
+      objects.push(container);
+    });
+
+    return objects;
+  }
+
+  // Fallback: Create geometric objects
   function createGeometricObjects() {
     const objects = [];
 
@@ -501,11 +665,16 @@
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(meshes);
+    const intersects = raycaster.intersectObjects(meshes, true);
 
     if (intersects.length > 0) {
-      const clickedMesh = intersects[0].object;
-      if (!clickedMesh.userData.isAnimating) {
+      // Find the root mesh (the one in our meshes array)
+      let clickedMesh = intersects[0].object;
+      while (clickedMesh.parent && !meshes.includes(clickedMesh)) {
+        clickedMesh = clickedMesh.parent;
+      }
+
+      if (meshes.includes(clickedMesh) && !clickedMesh.userData.isAnimating) {
         animateClick(clickedMesh);
       }
     }
@@ -548,11 +717,11 @@
   function animate() {
     requestAnimationFrame(animate);
 
-    // Rotate meshes continuously
+    // Rotate meshes continuously (15% faster animation)
     meshes.forEach((mesh, index) => {
       if (!mesh.userData.isAnimating) {
-        mesh.rotation.x += 0.0008 * (index + 1);
-        mesh.rotation.y += 0.001 * (index + 1);
+        mesh.rotation.x += 0.00092 * (index + 1);
+        mesh.rotation.y += 0.00115 * (index + 1);
       }
     });
 

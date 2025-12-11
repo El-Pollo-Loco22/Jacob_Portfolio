@@ -65,15 +65,15 @@
   .rotating-text:nth-child(1) {
     color: #667eea;
   }
-  
+
   .rotating-text:nth-child(2) {
     color: #764ba2;
   }
-  
+
   .rotating-text:nth-child(3) {
     color: #f093fb;
   }
-  
+
   .rotating-text:nth-child(4) {
     color: #f59e0b;
   }
@@ -124,18 +124,22 @@
     border-color: #4f8cff;
     box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
   }
+
   25% {
     border-color: #a855f7;
     box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
   }
+
   50% {
     border-color: #ec4899;
     box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
   }
+
   75% {
     border-color: #f59e0b;
     box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
   }
+
   100% {
     border-color: #4f8cff;
     box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
@@ -143,10 +147,13 @@
 }
 
 @keyframes textPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   }
+
   50% {
     transform: scale(1.05);
     text-shadow: 0 0 15px rgba(255, 255, 255, 1);
@@ -157,6 +164,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -169,10 +177,13 @@
 }
 
 @keyframes backgroundPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.6;
     transform: scale(1.1);
@@ -186,21 +197,21 @@
     min-height: 1.2em;
     margin: 0.4rem 0;
   }
-  
+
   .rotating-text {
     font-size: 2.2rem;
   }
-  
+
   .circle-link:hover {
     transform: scale(1.05) !important;
   }
-  
+
   /* Adjust nav-link drop shadows for mobile */
   .nav-link {
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
     padding: 6px 12px;
   }
-  
+
   .nav-link:hover {
     filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 15px rgba(79, 140, 255, 0.2));
     transform: translateY(-1px);
@@ -213,23 +224,23 @@
     min-height: 1.1em;
     margin: 0.3rem 0;
   }
-  
+
   .rotating-text {
     font-size: 1.8rem;
     letter-spacing: 0.01em;
   }
-  
+
   .circle-link:hover {
     transform: scale(1.03) !important;
   }
-  
+
   /* Further adjust nav-link drop shadows for small mobile */
   .nav-link {
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
     padding: 4px 8px;
     font-size: 10px;
   }
-  
+
   .nav-link:hover {
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 10px rgba(79, 140, 255, 0.15));
     transform: translateY(-1px);
@@ -242,30 +253,30 @@
     transition: opacity 0.3s ease;
     transform: none;
   }
-  
+
   .rotating-text.active {
     transform: none;
   }
-  
+
   .rotating-text.fade-out {
     transform: none;
   }
-  
+
   .rotating-text.slide-in,
   .rotating-text.slide-out {
     animation: none;
   }
-  
+
   .circle-link:hover {
     animation: none;
     border-color: #4f8cff;
     box-shadow: 0 0 15px rgba(79, 140, 255, 0.3);
   }
-  
+
   .circle-link:hover .button-text {
     animation: none;
   }
-  
+
   .circle-link:hover .scroll-link-outline {
     animation: none;
   }
@@ -294,12 +305,12 @@
   padding: 8px 16px;
 }
 
-/* Backdrop effects only for About and Contact nav items */
+/* About and Contact nav items - no box, just underline effect */
 .nav-link[href="about.html"],
 .nav-link[href="contact.html"] {
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* No background or border - just underline on hover */
+  background: transparent;
+  border: none;
 }
 
 .nav-link::before {
@@ -323,11 +334,11 @@
   filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(79, 140, 255, 0.3));
 }
 
-/* Enhanced backdrop effects on hover for About and Contact only */
+/* Keep About and Contact transparent on hover - only underline effect */
 .nav-link[href="about.html"]:hover,
 .nav-link[href="contact.html"]:hover {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border: none;
 }
 
 .nav-link:hover::before {
@@ -354,18 +365,22 @@
     color: #4f8cff;
     text-shadow: 0 0 10px rgba(79, 140, 255, 0.6);
   }
+
   25% {
     color: #a855f7;
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
   }
+
   50% {
     color: #ec4899;
     text-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
   }
+
   75% {
     color: #f59e0b;
     text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
   }
+
   100% {
     color: #4f8cff;
     text-shadow: 0 0 10px rgba(79, 140, 255, 0.6);
@@ -377,18 +392,22 @@
     background: linear-gradient(90deg, #4f8cff, #4f8cff);
     box-shadow: 0 0 5px rgba(79, 140, 255, 0.5);
   }
+
   25% {
     background: linear-gradient(90deg, #a855f7, #a855f7);
     box-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
   }
+
   50% {
     background: linear-gradient(90deg, #ec4899, #ec4899);
     box-shadow: 0 0 5px rgba(236, 72, 153, 0.5);
   }
+
   75% {
     background: linear-gradient(90deg, #f59e0b, #f59e0b);
     box-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
   }
+
   100% {
     background: linear-gradient(90deg, #4f8cff, #4f8cff);
     box-shadow: 0 0 5px rgba(79, 140, 255, 0.5);
@@ -406,18 +425,23 @@
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     filter: drop-shadow(0 0 5px rgba(79, 140, 255, 0.5));
   }
+
   25% {
     transform: scale(1.05);
     filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5));
   }
+
   50% {
     transform: scale(1.1);
     filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.5));
   }
+
   75% {
     transform: scale(1.05);
     filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.5));
@@ -436,10 +460,13 @@
 }
 
 @keyframes lineShimmer {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: scaleX(1);
   }
+
   50% {
     opacity: 1;
     transform: scaleX(1.2);
@@ -448,6 +475,7 @@
 
 /* Accessibility for navigation animations */
 @media (prefers-reduced-motion: reduce) {
+
   .nav-link:hover,
   .brand:hover,
   .menu-button:hover {
@@ -455,13 +483,13 @@
     color: #4f8cff;
     text-shadow: 0 0 5px rgba(79, 140, 255, 0.3);
   }
-  
+
   .nav-link {
     /* Maintain subtle drop shadow for accessibility */
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
     transition: all 0.3s ease;
   }
-  
+
   .nav-link:hover {
     /* Static drop shadow for reduced motion */
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 15px rgba(79, 140, 255, 0.4));
@@ -469,16 +497,14 @@
     background: rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(79, 140, 255, 0.3);
   }
-  
+
   .nav-link:hover::before {
     animation: none;
     background: #4f8cff;
   }
-  
+
   .nav-menu-items:hover .nav-link-line {
     animation: none;
     background: #4f8cff;
   }
 }
-
- 

@@ -98,27 +98,57 @@
       ]
     },
     'about': {
-      camera: { x: 0.5, y: 0.8, z: 6.5 },
+      camera: { x: 0, y: 0, z: 8 },
       particleColor: 0x87ceeb,
       shapes: [
-        { position: [-3, 0, 0], scale: 0.9, rotation: [0, 0.3, 0] },
-        { position: [-1, 0, 0], scale: 0.9, rotation: [0, 0.3, 0] },
-        { position: [1, 0, 0], scale: 0.9, rotation: [0, 0.3, 0] },
-        { position: [3, 0, 0], scale: 0.9, rotation: [0, 0.3, 0] },
-        { position: [-1, 2, 0], scale: 0.9, rotation: [0, 0.3, 0] },
-        { position: [1, 2, 0], scale: 0.9, rotation: [0, 0.3, 0] }
+        // Cube - background
+        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
+        // Octahedron - background
+        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
+        // Tetrahedron - background
+        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
+        // Icosahedron - background
+        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
+        // Torus - FEATURED (front and center)
+        { position: [0, 0, 0], scale: 2.2, rotation: [0.5, 0, 0] },
+        // Cone - background
+        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
       ]
     },
     'contact': {
-      camera: { x: 0, y: 0, z: 6 },
+      camera: { x: 0, y: 0, z: 8 },
       particleColor: 0xff69b4,
       shapes: [
-        { position: [-2, 1, 0], scale: 0.9, rotation: [0, 0, 0] },
-        { position: [0, 1, 0], scale: 0.9, rotation: [0, 0, 0] },
-        { position: [2, 1, 0], scale: 0.9, rotation: [0, 0, 0] },
-        { position: [-2, -1, 0], scale: 0.9, rotation: [0, 0, 0] },
-        { position: [0, -1, 0], scale: 0.9, rotation: [0, 0, 0] },
-        { position: [2, -1, 0], scale: 0.9, rotation: [0, 0, 0] }
+        // Cube - background
+        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
+        // Octahedron - FEATURED (front and center)
+        { position: [0, 0, 0], scale: 2.2, rotation: [0, 0, 0] },
+        // Tetrahedron - background
+        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
+        // Icosahedron - background
+        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
+        // Torus - background
+        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
+        // Cone - background
+        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
+      ]
+    },
+    'portfolio': {
+      camera: { x: 0, y: 0, z: 8 },
+      particleColor: 0x10b981,
+      shapes: [
+        // Cube - background
+        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
+        // Octahedron - background
+        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
+        // Tetrahedron - FEATURED (front and center)
+        { position: [0, 0, 0], scale: 2.2, rotation: [0, 0, 0] },
+        // Icosahedron - background
+        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
+        // Torus - background
+        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
+        // Cone - background
+        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
       ]
     }
   };
@@ -360,6 +390,19 @@
       link.addEventListener('mouseenter', () => {
         stopAutoRotation();
         transitionToMode('contact');
+      });
+      link.addEventListener('mouseleave', () => {
+        transitionToMode('default');
+        startAutoRotation();
+      });
+    });
+
+    // Portfolio links
+    const portfolioLinks = document.querySelectorAll('a[href="BlogProjectsJHW-Porfolio/portfolio.html"]');
+    portfolioLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        stopAutoRotation();
+        transitionToMode('portfolio');
       });
       link.addEventListener('mouseleave', () => {
         transitionToMode('default');

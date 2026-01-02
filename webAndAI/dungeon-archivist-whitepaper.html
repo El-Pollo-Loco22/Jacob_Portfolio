@@ -75,7 +75,7 @@
         <div class="section-subtitle">White Paper</div>
         <h2 class="section-title">Executive Summary</h2>
         <p class="section-description">
-          The Dungeon Archivist turns D&D rule lookups from immersion-breaking pauses into instant answers. Ask "What happens when you're blinded?" and get accurate, cited responses in under 3 seconds—powered by a hybrid RAG system designed for rule accuracy and zero hallucinations.
+          The Dungeon Archivist turns D&D rule lookups from immersion-breaking pauses into instant answers. Ask "What happens when you're blinded?" and get accurate, cited responses in under 3 seconds—powered by a hybrid RAG system designed for rule accuracy and a reduced risk of hallucinated answers.
         </p>
         
         <div class="metrics-grid">
@@ -125,7 +125,7 @@
           </div>
           <div class="feature-item">
             <h3 class="feature-title">Zero Tolerance for Errors</h3>
-            <p class="feature-description">A wrong ruling ruins game balance. There's no room for hallucinations or plausible-sounding but incorrect answers.</p>
+            <p class="feature-description">A wrong ruling ruins game balance. The system is designed to minimize the chance of plausible-sounding but incorrect answers by grounding replies in retrieved sources and rejecting queries when it can't find relevant D&amp;D content.</p>
           </div>
         </div>
       </div>
@@ -157,7 +157,7 @@
               <tr>
                 <td><strong>Generic LLMs</strong></td>
                 <td>Natural language understanding</td>
-                <td>Confidently invents plausible-sounding but wrong rules (hallucination)</td>
+                <td>Can invent plausible-sounding but wrong rules (hallucinations), especially without grounding in source material</td>
               </tr>
               <tr>
                 <td><strong>Pure Vector Search</strong></td>
@@ -195,8 +195,8 @@
             <strong>Technology:</strong> Direct entity lookups in structured metadata</p>
           </div>
           <div class="feature-item">
-            <h3 class="feature-title">Hallucination Prevention</h3>
-            <p class="feature-description">Threshold-based filtering (score &lt; 1.1) validates relevance. Out-of-domain queries are explicitly rejected with "No relevant D&D content found."</p>
+            <h3 class="feature-title">Hallucination Risk Reduction</h3>
+            <p class="feature-description">Threshold-based filtering (score &lt; 1.1) validates relevance and helps reduce the chance of hallucinated content making it into replies. Out-of-domain queries are explicitly rejected with "No relevant D&amp;D content found."</p>
           </div>
           <div class="feature-item">
             <h3 class="feature-title">Source Citations</h3>
@@ -428,7 +428,7 @@
           <div class="timeline-item">
             <div class="timeline-phase">Phase 3: Query Implementation</div>
             <div class="timeline-status status-completed">✅ Completed</div>
-            <p>End-to-end RAG pipeline, threshold-based filtering, semantic search validation, and hallucination prevention through confidence-based filtering.</p>
+            <p>End-to-end RAG pipeline, threshold-based filtering, semantic search validation, and hallucination risk reduction through confidence-based filtering.</p>
           </div>
           
           <div class="timeline-item">
@@ -457,7 +457,7 @@
         <div class="feature-grid">
           <div class="feature-item">
             <h3 class="feature-title">AI/ML Engineering</h3>
-            <p class="feature-description">Semantic search implementation, empirical threshold determination (50+ queries), agentic system design, and hallucination prevention through confidence-based filtering.</p>
+            <p class="feature-description">Semantic search implementation, empirical threshold determination (50+ queries), agentic system design, and hallucination risk reduction through confidence-based filtering.</p>
           </div>
           <div class="feature-item">
             <h3 class="feature-title">Data Engineering</h3>
@@ -672,5 +672,6 @@
 
 </body>
 </html>
+
 
 

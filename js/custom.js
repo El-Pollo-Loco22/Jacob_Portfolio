@@ -17,6 +17,7 @@
         initScrollAnimations();
         initFormEnhancements();
         initInteractiveElements();
+        initMobileNavFallback();
         initPerformanceOptimizations();
         initAccessibilityFeatures();
         initAnalytics();
@@ -231,6 +232,74 @@
         });
     }
 
+    // ===== MOBILE NAVIGATION FALLBACK =====
+    function closeMobileMenu() {
+        const navMenu = document.querySelector('.mobile-nav-menu');
+        const menuButton = document.querySelector('.menu-button');
+
+        if (!navMenu || !menuButton) return;
+
+        navMenu.classList.remove('w--open', 'is-open');
+        navMenu.removeAttribute('data-nav-menu-open');
+        menuButton.classList.remove('w--open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+    }
+
+    function openMobileMenu() {
+        const navMenu = document.querySelector('.mobile-nav-menu');
+        const menuButton = document.querySelector('.menu-button');
+
+        if (!navMenu || !menuButton) return;
+
+        navMenu.classList.add('w--open', 'is-open');
+        navMenu.setAttribute('data-nav-menu-open', 'true');
+        menuButton.classList.add('w--open');
+        menuButton.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-open');
+    }
+
+    function initMobileNavFallback() {
+        const navMenu = document.querySelector('.mobile-nav-menu');
+        const menuButton = document.querySelector('.menu-button');
+
+        if (!navMenu || !menuButton) return;
+
+        // Toggle menu visibility without relying on Webflow's script
+        menuButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const isOpen = navMenu.classList.contains('w--open') || navMenu.classList.contains('is-open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu when a nav link is tapped
+        navMenu.addEventListener('click', (event) => {
+            if (event.target.closest('a')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Reset state on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 991) {
+                closeMobileMenu();
+            }
+        });
+    }
+
     function typeWriter(element, text, speed) {
         element.textContent = '';
         let i = 0;
@@ -293,8 +362,9 @@
             if (e.key === 'Escape') {
                 const openMenus = document.querySelectorAll('.w-nav-menu.w--open');
                 openMenus.forEach(menu => {
-                    menu.classList.remove('w--open');
+                    menu.classList.remove('w--open', 'is-open');
                 });
+                closeMobileMenu();
             }
 
             // Tab key navigation enhancement

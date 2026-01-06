@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web Buster - Retro Gaming Chrome Extension White Paper</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="../css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="../css/jacobs-radical-site-54f3e9.webflow.css" rel="stylesheet" type="text/css">
+  <link href="../css/web-buster-whitepaper.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Inconsolata:400,700","Playfair Display:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic","Jost:regular,500,600,700,800,900,100italic,200italic,italic,800italic,900italic:latin,latin-ext","Bebas Neue:regular","Bebas Neue:regular:latin,latin-ext","Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic:latin,latin-ext","Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic:cyrillic,cyrillic-ext,greek,greek-ext"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="../images/favicon.gif" rel="shortcut icon" type="image/x-icon">
+  <link href="../images/webclip.jpg" rel="apple-touch-icon">
+</head>
+<body class="body">
+  <div class="preloader">
+    <div class="preloader-center">
+      <div class="brand"></div>
+      <img src="../images/small.png" loading="lazy" alt="">
+    </div>
+  </div>
+  
+  <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+    <div class="grid-wrapper">
+      <div id="w-node-be258afa-3e73-d2c3-b324-1b8fb0f87171-b0f8716f" class="nav-wrapper">
+        <div id="w-node-be258afa-3e73-d2c3-b324-1b8fb0f87172-b0f8716f" class="nav-menu-items">
+          <a href="../BlogProjectsJHW-Porfolio/portfolio.html" class="nav-link left w-inline-block">
+            <div>Portfolio</div>
+          </a>
+        </div>
+        <a href="../index.html" id="w-node-be258afa-3e73-d2c3-b324-1b8fb0f8717a-b0f8716f" class="brand w-nav-brand"><img src="../images/Artboard-22.png" loading="lazy" width="64" sizes="64px" alt="" srcset="../images/Artboard-22-p-500.png 500w, ../images/Artboard-22.png 620w"></a>
+        <div id="w-node-be258afa-3e73-d2c3-b324-1b8fb0f8717d-b0f8716f" class="nav-menu-items">
+          <a href="../about.html" class="nav-link left w-inline-block">
+            <div>About</div>
+          </a>
+          <div id="w-node-be258afa-3e73-d2c3-b324-1b8fb0f87181-b0f8716f" class="nav-link-line"></div>
+          <a href="../contact.html" class="nav-link right w-inline-block">
+            <div>Contact</div>
+          </a>
+        </div>
+        <nav role="navigation" class="mobile-nav-menu w-nav-menu">
+          <a href="../index.html" class="nav-link w-nav-link">Home</a>
+          <a href="../BlogProjectsJHW-Porfolio/portfolio.html" class="nav-link w-nav-link">Portfolio</a>
+          <a href="../about.html" class="nav-link w-nav-link">About</a>
+          <a href="../contact.html" class="nav-link w-nav-link">Contact</a>
+        </nav>
+        <div id="w-node-be258afa-3e73-d2c3-b324-1b8fb0f8718c-b0f8716f" class="menu-button w-nav-button">
+          <div class="menu-button-wrapper"><img src="../images/menu-224x242x.svg" loading="lazy" alt="" class="menu-icon"></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cover"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="project-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Web Buster</h1>
+        <p class="hero-description">Retro Gaming Chrome Extension — Transform Any Webpage Into Classic Arcade Action</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <section id="overview" class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">White Paper</div>
+        <h2 class="section-title">What is Web Buster!</h2>
+        <p class="section-description">
+          Web Buster is a Chrome Extension (Manifest V3) that transforms any webpage into an interactive retro gaming experience. The extension overlays classic arcade games on top of any website, using the page's DOM elements as obstacles and collectibles—creating a unique fusion of modern browsing and nostalgic arcade entertainment.
+        </p>
+        
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Playable Games</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Free & Privacy-First</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">AI</div>
+            <div class="metric-label">Smart Game Selection</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">v0.3.0</div>
+            <div class="metric-label">Production Ready</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Platform Capabilities</div>
+        <h2 class="section-title">Game Library</h2>
+        <p class="section-description">
+          All games run as fullscreen canvas overlays, dynamically adapting to each webpage's unique structure and converting DOM elements into interactive gameplay components.
+        </p>
+        
+        <div class="feature-grid">
+          <div class="feature-item game-item">
+            <h3 class="feature-title">🐍 Snake</h3>
+            <p class="feature-description">Classic grid-based Snake gameplay where DOM elements become obstacles and food spawns on interactive elements like links and buttons. Speed increases with score across 3-round sessions.</p>
+            <p class="feature-description"><strong>Controls:</strong> WASD/Arrow keys, P (pause), Esc (exit)</p>
+          </div>
+          <div class="feature-item game-item">
+            <h3 class="feature-title">👾 Space Invaders</h3>
+            <p class="feature-description">Horizontal player movement at bottom of screen with enemies spawning from top. Features lives system (3 lives), combo multiplier for rapid kills, and bullet-based combat.</p>
+            <p class="feature-description"><strong>Controls:</strong> A/D or Left/Right (move), Space (shoot), P (pause), Esc (exit)</p>
+          </div>
+          <div class="feature-item game-item">
+            <h3 class="feature-title">🚀 Asteroids</h3>
+            <p class="feature-description">360° rotation and thrust-based movement with DOM images converted to asteroids. Features physics-based motion, wrap-around screen edges, and asteroids that split when destroyed.</p>
+            <p class="feature-description"><strong>Controls:</strong> W/Up (thrust), A/D or Left/Right (rotate), Space (shoot), P (pause), Esc (exit)</p>
+          </div>
+          <div class="feature-item game-item">
+            <h3 class="feature-title">👻 Pac-Man</h3>
+            <p class="feature-description">Maze generated from DOM structure with dots to collect (links, buttons) and ghosts with simple AI pathfinding. Power pellet system for temporary invincibility.</p>
+            <p class="feature-description"><strong>Controls:</strong> WASD/Arrow keys, P (pause), Esc (exit)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-Powered Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Intelligence</div>
+        <h2 class="section-title">AI-Powered Game Selection</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 class="feature-title">Automatic Recommendations</h3>
+            <p class="feature-description">AI analyzes webpage structure to select the best-fitting game based on DOM obstacle count, page type detection, element distribution, and interactive elements count.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Smart Scoring System</h3>
+            <p class="feature-description"><strong>Snake:</strong> Best for scattered layouts and card-based designs<br>
+            <strong>Shooter:</strong> Ideal for articles and text-heavy vertical content<br>
+            <strong>Asteroids:</strong> Optimized for open space and image-heavy pages<br>
+            <strong>Pac-Man:</strong> Perfect for pages with many obstacles and links</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Confidence Display</h3>
+            <p class="feature-description">Shows AI confidence level and reasoning for game selection, providing transparency in the recommendation process.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Manual Override</h3>
+            <p class="feature-description">Users can manually select any game from dropdown menu, maintaining full control over their gaming experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Competition & Collaboration</div>
+        <h2 class="section-title">Leaderboard System</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 class="feature-title">Local Score Tracking</h3>
+            <p class="feature-description">All scores saved locally using Chrome's storage API—no server required, complete privacy protection.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">PIN-Based Groups</h3>
+            <p class="feature-description">Join groups using 6-digit PINs for friendly competition. Features member count tracking, total games played statistics, and group high score tracking.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Dual View Modes</h3>
+            <p class="feature-description">Toggle between "Group" scores and "All" scores to see how you rank among friends or globally in your local browser.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Per-Game High Scores</h3>
+            <p class="feature-description">Tracks personal best for each game type with persistent storage across sessions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Implementation -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Technology Stack</div>
+        <h2 class="section-title">Technical Architecture</h2>
+        
+        <div class="tech-stack">
+          <div class="tech-item">
+            <h4>Chrome Extension MV3</h4>
+            <p>Latest Manifest V3 standard with service workers, ensuring modern security practices and optimal performance</p>
+          </div>
+          <div class="tech-item">
+            <h4>HTML5 Canvas API</h4>
+            <p>Fullscreen canvas rendering with maximum z-index for smooth game graphics and universal compatibility</p>
+          </div>
+          <div class="tech-item">
+            <h4>Web Audio API</h4>
+            <p>Dynamically generated retro sound effects for authentic arcade experience—no audio files needed</p>
+          </div>
+          <div class="tech-item">
+            <h4>Chrome Storage API</h4>
+            <p>Local storage for scores and sync storage for settings, providing seamless data persistence</p>
+          </div>
+          <div class="tech-item">
+            <h4>Hugging Face AI</h4>
+            <p>Free AI capabilities using google/flan-t5-base model with 5-minute result caching and ~30 requests/minute rate limit</p>
+          </div>
+          <div class="tech-item">
+            <h4>Slack Integration</h4>
+            <p>Optional incoming webhooks for team notifications—no API keys required, fully optional feature</p>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <strong>💡 Architecture Insight:</strong> Web Buster uses a content script injection model to analyze DOM structure without affecting page functionality. The canvas overlay system ensures games run independently while seamlessly integrating with page elements as gameplay obstacles and collectibles.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- User Experience -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">User Journey</div>
+        <h2 class="section-title">User Features</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 class="feature-title">User Profile</h3>
+            <p class="feature-description">Customizable display name with anonymous local user creation and auto-generated usernames (e.g., "RetroGamer42").</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Game Selection Interface</h3>
+            <p class="feature-description">Dropdown menu with 5 options: 🤖 AI Auto-Select, 🐍 Snake, 👾 Space Invaders, 🚀 Asteroids, 👻 Pac-Man—complete with AI reasoning display.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Group Management</h3>
+            <p class="feature-description">6-digit PIN input, real-time group statistics, member list viewer, and save/load PIN functionality for persistent group membership.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Leaderboard Display</h3>
+            <p class="feature-description">Top scores display with Group/All toggle, refresh button, and detailed score information including player, game, score, and page URL.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Status Indicators</h3>
+            <p class="feature-description">Real-time status for AI (Ready/Unavailable), Firebase (Local/Connected), and Slack (Configured/Not configured).</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Settings Panel</h3>
+            <p class="feature-description">Slack webhook URL configuration, notification enable/disable toggle, test notification button, and debug logs access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gameplay Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Gaming Experience</div>
+        <h2 class="section-title">Gameplay Features</h2>
+        
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-value">🎮</div>
+            <div class="metric-label">Round System (3 rounds)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">📈</div>
+            <div class="metric-label">Progressive Difficulty</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">⏸️</div>
+            <div class="metric-label">Pause System (P key)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">🔊</div>
+            <div class="metric-label">Retro Sound Effects</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">🎨</div>
+            <div class="metric-label">Dynamic Page Theming</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">📊</div>
+            <div class="metric-label">Real-time Score Display</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">🏆</div>
+            <div class="metric-label">Game Over Screens</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">⚡</div>
+            <div class="metric-label">Quick Exit (Esc key)</div>
+          </div>
+        </div>
+
+        <ul class="benefits-list">
+          <li><strong>Privacy-First Design:</strong> All data stored locally, no external servers, complete user control</li>
+          <li><strong>Zero Setup Required:</strong> Works immediately after installation with no configuration needed</li>
+          <li><strong>Free Forever:</strong> All AI features use free APIs, no subscription or payment required</li>
+          <li><strong>Retro Authenticity:</strong> Genuine arcade game experience with scanlines, pixelated rendering, and CRT-style aesthetics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance & Compatibility -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Technical Performance</div>
+        <h2 class="section-title">Performance & Compatibility</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 class="feature-title">Resource Usage</h3>
+            <p class="feature-description"><strong>Memory:</strong> ~50-100MB per game session<br>
+            <strong>CPU Impact:</strong> Moderate (canvas rendering loop)<br>
+            <strong>Network:</strong> Minimal (AI calls cached, Slack optional)<br>
+            <strong>Storage:</strong> Local Chrome storage for scores and settings</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Browser Support</h3>
+            <p class="feature-description"><strong>✅ Chrome:</strong> 88+ (recommended)<br>
+            <strong>✅ Edge:</strong> 88+ (Chromium-based)<br>
+            <strong>✅ Opera:</strong> 74+ (Chromium-based)<br>
+            <strong>❌ Firefox:</strong> Not supported (different APIs)<br>
+            <strong>❌ Safari:</strong> Not supported (different APIs)</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Installation</h3>
+            <p class="feature-description">1. Download/clone extension folder<br>
+            2. Open chrome://extensions<br>
+            3. Enable "Developer mode"<br>
+            4. Click "Load unpacked"<br>
+            5. Select folder<br>
+            6. Extension ready to use</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Permissions</h3>
+            <p class="feature-description"><strong>storage:</strong> Save scores and settings<br>
+            <strong>activeTab:</strong> Inject game overlay<br>
+            <strong>scripting:</strong> Execute content scripts<br>
+            <strong>host_permissions:</strong> DOM analysis for all URLs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Applications</div>
+        <h2 class="section-title">Use Cases</h2>
+        
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>User Type</th>
+                <th>Primary Benefits</th>
+                <th>Key Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Individual Users</strong></td>
+                <td>Quick gaming breaks during browsing, personal high score challenges, webpage interaction gamification</td>
+                <td>AI game selection, local leaderboards, instant play</td>
+              </tr>
+              <tr>
+                <td><strong>Teams</strong></td>
+                <td>Office-wide competitions using group PINs, break time entertainment, team bonding</td>
+                <td>Group leaderboards, Slack notifications, shared scoring</td>
+              </tr>
+              <tr>
+                <td><strong>Developers</strong></td>
+                <td>Study Chrome Extension MV3 architecture, learn Canvas API game development, explore AI integration</td>
+                <td>Clean codebase, modular structure, comprehensive documentation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unique Selling Points -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Platform Success</div>
+        <h2 class="section-title">Unique Selling Points</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 class="feature-title">No Setup Required</h3>
+            <p class="feature-description">Works immediately after installation with zero configuration. No API keys, no accounts, no complex setup processes—just install and play.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">100% Free</h3>
+            <p class="feature-description">All AI features use free APIs with no subscription costs. No hidden charges, no premium tiers—completely free forever.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Privacy-First</h3>
+            <p class="feature-description">All data stored locally with no external servers. Complete user control over personal information and gameplay data.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Smart AI</h3>
+            <p class="feature-description">Automatically picks the best game for each page based on structure analysis and intelligent recommendation algorithms.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Group Competition</h3>
+            <p class="feature-description">Easy PIN-based multiplayer leaderboards for team competitions without complex account systems or social media integration.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Retro Authenticity</h3>
+            <p class="feature-description">Genuine arcade game experience with CRT effects, retro sound design, and classic gameplay mechanics that honor gaming history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusion -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-subtitle">Platform Summary</div>
+        <h2 class="section-title">Conclusion</h2>
+        <p class="section-description">
+          Web Buster is a fully-featured Chrome extension that brings classic arcade gaming to modern web browsing. With 4 playable games, AI-powered recommendations, group leaderboards, Slack integration, and a retro aesthetic, it offers both casual entertainment and competitive gaming features—all while respecting user privacy and requiring zero setup costs.
+        </p>
+        
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-value">✅</div>
+            <div class="metric-label">Production-Ready v0.3.0</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">✅</div>
+            <div class="metric-label">Privacy-First Architecture</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">✅</div>
+            <div class="metric-label">AI-Powered Intelligence</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">✅</div>
+            <div class="metric-label">Free Forever</div>
+          </div>
+        </div>
+        
+        <p class="section-description">
+          The extension successfully transforms standard web browsing into an interactive retro gaming experience, demonstrating advanced competencies in Chrome Extension development, Canvas API game programming, AI integration, and user-centered design. From security-first development practices to authentic retro aesthetics, Web Buster represents a complete fusion of nostalgia and modern web technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="section_style_1">
+    <div class="triangle-arrow-wrapper">
+      <div class="overlay light"></div>
+      <div class="triangle-clip">
+        <div class="trangle-grid left">
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+        </div>
+        <div class="trangle-grid left">
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <div class="triangle-clip right">
+        <div class="trangle-grid right">
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+        </div>
+        <div class="trangle-grid right">
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+          <div class="triangle right"></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-wrapper">
+      <div id="w-node-a718fee2-cdbe-2d6a-17dc-d2d6b2e33f49-b2e33f3f" class="stacked-intro centered">
+        <div class="medium-width-intro">
+          <div class="stacked-title">
+            <div class="subtitle">Let's talk</div>
+            <h1 class="cs_heading_3 large">Contact me</h1>
+          </div>
+        </div>
+        <a id="w-node-a718fee2-cdbe-2d6a-17dc-d2d6b2e33f53-b2e33f3f" href="../contact.html" class="button w-inline-block">
+          <div class="button-text">Shoot me an Email</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-section">
+    <div class="grid-wrapper">
+      <div id="w-node-d71bbba8-b822-977a-c61c-346d6b5d45c0-6b5d45be" class="content-wrapper">
+        <div id="w-node-d71bbba8-b822-977a-c61c-346d6b5d45c1-6b5d45be" class="footer-menu">
+          <a id="w-node-d71bbba8-b822-977a-c61c-346d6b5d45c2-6b5d45be" href="../BlogProjectsJHW-Porfolio/portfolio.html" class="footer-link w-inline-block">
+            <div>My work</div>
+          </a>
+          <a href="../about.html" class="footer-link w-inline-block">
+            <div>About</div>
+          </a>
+          <a href="../contact.html" class="footer-link w-inline-block">
+            <div>Contact</div>
+          </a>
+        </div>
+        <a id="w-node-d71bbba8-b822-977a-c61c-346d6b5d45ce-6b5d45be" href="#" class="brand w-inline-block">
+          <div class="div-block-194"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=65e67a2bcd837a0b5bd3d563" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="../js/webflow.js" type="text/javascript"></script>
+  
+  <script>
+    // Preloader functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const preloader = document.querySelector('.preloader');
+      
+      if (preloader) {
+        preloader.style.display = 'flex';
+        preloader.style.opacity = '1';
+      }
+      
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (preloader) {
+            preloader.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            preloader.style.opacity = '0';
+            preloader.style.transform = 'translateY(-100%)';
+            
+            setTimeout(function() {
+              preloader.style.display = 'none';
+            }, 500);
+          }
+        }, 500);
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+

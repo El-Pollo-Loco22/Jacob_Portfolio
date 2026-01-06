@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (externalLinkBtn) {
         externalLinkBtn.addEventListener('click', function() {
-            window.open('https://github.com', '_blank');
+            window.open('https://github.com/El-Pollo-Loco22', '_blank');
         });
     }
     

@@ -144,8 +144,8 @@
     const maxDim = Math.max(size.x, size.y, size.z);
 
     if (maxDim > 0) {
-      // Scale to fit nicely in view (about 2 units)
-      const scale = 2.0 / maxDim;
+      // Scale to fit nicely in view (about 0.8 units - much smaller)
+      const scale = 0.8 / maxDim;
       dragonModel.scale.setScalar(scale);
 
       // Recalculate bounding box after scaling

@@ -62,60 +62,60 @@
       camera: { x: 0, y: 0, z: 7 },
       particleColor: 0x4f8cff,
       shapes: [
-        { position: [-2, 1.5, 0], scale: 1.4, rotation: [0.3, 0.5, 0] },
-        { position: [2, 1.5, 0], scale: 1.3, rotation: [0.2, -0.3, 0] },
-        { position: [-2, -1, 0], scale: 1.2, rotation: [-0.2, 0.4, 0] },
-        { position: [2, -1, 0], scale: 1.2, rotation: [0.4, 0.2, 0] },
-        { position: [0, 0.5, 1], scale: 1.1, rotation: [0, 0.6, 0] },
-        { position: [0, -2, 0], scale: 1.1, rotation: [0.3, 0, 0.2] }
+        { position: [-2, 1.5, 0], scale: 0.9, rotation: [0.3, 0.5, 0] },
+        { position: [2, 1.5, 0], scale: 0.85, rotation: [0.2, -0.3, 0] },
+        { position: [-2, -1, 0], scale: 0.8, rotation: [-0.2, 0.4, 0] },
+        { position: [2, -1, 0], scale: 0.8, rotation: [0.4, 0.2, 0] },
+        { position: [0, 0.5, 1], scale: 0.75, rotation: [0, 0.6, 0] },
+        { position: [0, -2, 0], scale: 0.75, rotation: [0.3, 0, 0.2] }
       ]
     },
     'tech-creative': {
       camera: { x: 0.5, y: 0.5, z: 6.5 },
       particleColor: 0xa855f7,
       shapes: [
-        { position: [-2.5, 2, 0.5], scale: 1.5, rotation: [0.5, 0.8, 0.2] },
-        { position: [2.5, 1, -0.5], scale: 1.3, rotation: [-0.3, 0.5, 0.1] },
-        { position: [-1, -1.5, 1], scale: 1.2, rotation: [0.2, -0.4, 0.3] },
-        { position: [1.5, -2, 0], scale: 1.1, rotation: [0.4, 0.3, -0.2] },
-        { position: [0, 2.5, -1], scale: 1.0, rotation: [-0.2, 0.6, 0.4] },
-        { position: [-2, 0, 1.5], scale: 1.4, rotation: [0.3, -0.5, 0.1] }
+        { position: [-2.5, 2, 0.5], scale: 1.0, rotation: [0.5, 0.8, 0.2] },
+        { position: [2.5, 1, -0.5], scale: 0.85, rotation: [-0.3, 0.5, 0.1] },
+        { position: [-1, -1.5, 1], scale: 0.8, rotation: [0.2, -0.4, 0.3] },
+        { position: [1.5, -2, 0], scale: 0.75, rotation: [0.4, 0.3, -0.2] },
+        { position: [0, 2.5, -1], scale: 0.7, rotation: [-0.2, 0.6, 0.4] },
+        { position: [-2, 0, 1.5], scale: 0.9, rotation: [0.3, -0.5, 0.1] }
       ]
     },
     'prompt-engineer': {
       camera: { x: 0, y: 0.5, z: 7 },
       particleColor: 0xec4899,
       shapes: [
-        { position: [0, 2.5, 0], scale: 1.3, rotation: [0, 0.5, 0] },
-        { position: [0, 1, 0], scale: 1.2, rotation: [0.2, 0.3, 0] },
-        { position: [0, -0.5, 0], scale: 1.1, rotation: [0.1, -0.2, 0] },
-        { position: [0, -2, 0], scale: 1.0, rotation: [-0.1, 0.4, 0] },
-        { position: [-1.5, 0.5, 1], scale: 1.1, rotation: [0.3, 0.5, 0.2] },
-        { position: [1.5, 0.5, 1], scale: 1.1, rotation: [-0.3, -0.5, 0.2] }
+        { position: [0, 2.5, 0], scale: 0.85, rotation: [0, 0.5, 0] },
+        { position: [0, 1, 0], scale: 0.8, rotation: [0.2, 0.3, 0] },
+        { position: [0, -0.5, 0], scale: 0.75, rotation: [0.1, -0.2, 0] },
+        { position: [0, -2, 0], scale: 0.7, rotation: [-0.1, 0.4, 0] },
+        { position: [-1.5, 0.5, 1], scale: 0.75, rotation: [0.3, 0.5, 0.2] },
+        { position: [1.5, 0.5, 1], scale: 0.75, rotation: [-0.3, -0.5, 0.2] }
       ]
     },
     'multi-media': {
       camera: { x: -0.3, y: 0, z: 6.5 },
       particleColor: 0xf59e0b,
       shapes: [
-        { position: [-2, 2, 0.5], scale: 1.6, rotation: [0.4, 0.7, 0.3] },
-        { position: [2.5, 1.5, -0.5], scale: 1.4, rotation: [-0.3, 0.5, -0.2] },
-        { position: [-1.5, -1, 1.5], scale: 1.3, rotation: [0.5, -0.3, 0.4] },
-        { position: [1, -2, 0.5], scale: 1.2, rotation: [0.2, 0.6, -0.3] },
-        { position: [0.5, 0, -1], scale: 1.0, rotation: [-0.4, 0.4, 0.2] },
-        { position: [-2.5, 0.5, 0], scale: 1.1, rotation: [0.3, -0.6, 0.5] }
+        { position: [-2, 2, 0.5], scale: 1.05, rotation: [0.4, 0.7, 0.3] },
+        { position: [2.5, 1.5, -0.5], scale: 0.9, rotation: [-0.3, 0.5, -0.2] },
+        { position: [-1.5, -1, 1.5], scale: 0.85, rotation: [0.5, -0.3, 0.4] },
+        { position: [1, -2, 0.5], scale: 0.8, rotation: [0.2, 0.6, -0.3] },
+        { position: [0.5, 0, -1], scale: 0.7, rotation: [-0.4, 0.4, 0.2] },
+        { position: [-2.5, 0.5, 0], scale: 0.75, rotation: [0.3, -0.6, 0.5] }
       ]
     },
     'view-work': {
       camera: { x: 0, y: 0, z: 8 },
       particleColor: 0xffd700,
       shapes: [
-        { position: [0, 0, 0], scale: 2.2, rotation: [0, 0, 0] },
-        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
-        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
-        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
-        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
-        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
+        { position: [0, 0, 0], scale: 1.4, rotation: [0, 0, 0] },
+        { position: [-2, 1.5, -2], scale: 0.5, rotation: [0.5, 0.5, 0] },
+        { position: [2, 1.5, -2], scale: 0.5, rotation: [-0.5, 0.5, 0] },
+        { position: [-2, -1.5, -2], scale: 0.5, rotation: [0.5, -0.5, 0] },
+        { position: [2, -1.5, -2], scale: 0.5, rotation: [-0.5, -0.5, 0] },
+        { position: [0, -2.5, -1], scale: 0.5, rotation: [0, 0.3, 0] }
       ]
     },
     'about': {
@@ -123,17 +123,17 @@
       particleColor: 0x87ceeb,
       shapes: [
         // Cube - background
-        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
+        { position: [-2, 1.5, -2], scale: 0.5, rotation: [0.5, 0.5, 0] },
         // Octahedron - background
-        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
+        { position: [2, 1.5, -2], scale: 0.5, rotation: [-0.5, 0.5, 0] },
         // Tetrahedron - background
-        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
+        { position: [-2, -1.5, -2], scale: 0.5, rotation: [0.5, -0.5, 0] },
         // Icosahedron - background
-        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
+        { position: [2, -1.5, -2], scale: 0.5, rotation: [-0.5, -0.5, 0] },
         // Torus - FEATURED (front and center)
-        { position: [0, 0, 0], scale: 2.2, rotation: [0.5, 0, 0] },
+        { position: [0, 0, 0], scale: 1.4, rotation: [0.5, 0, 0] },
         // Cone - background
-        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
+        { position: [0, -2.5, -1], scale: 0.5, rotation: [0, 0.3, 0] }
       ]
     },
     'contact': {
@@ -141,17 +141,17 @@
       particleColor: 0xff69b4,
       shapes: [
         // Cube - background
-        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
+        { position: [-2, 1.5, -2], scale: 0.5, rotation: [0.5, 0.5, 0] },
         // Octahedron - FEATURED (front and center)
-        { position: [0, 0, 0], scale: 2.2, rotation: [0, 0, 0] },
+        { position: [0, 0, 0], scale: 1.4, rotation: [0, 0, 0] },
         // Tetrahedron - background
-        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
+        { position: [2, 1.5, -2], scale: 0.5, rotation: [-0.5, 0.5, 0] },
         // Icosahedron - background
-        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
+        { position: [-2, -1.5, -2], scale: 0.5, rotation: [0.5, -0.5, 0] },
         // Torus - background
-        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
+        { position: [2, -1.5, -2], scale: 0.5, rotation: [-0.5, -0.5, 0] },
         // Cone - background
-        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
+        { position: [0, -2.5, -1], scale: 0.5, rotation: [0, 0.3, 0] }
       ]
     },
     'portfolio': {
@@ -159,17 +159,17 @@
       particleColor: 0x10b981,
       shapes: [
         // Cube - background
-        { position: [-2, 1.5, -2], scale: 0.7, rotation: [0.5, 0.5, 0] },
+        { position: [-2, 1.5, -2], scale: 0.5, rotation: [0.5, 0.5, 0] },
         // Octahedron - background
-        { position: [2, 1.5, -2], scale: 0.7, rotation: [-0.5, 0.5, 0] },
+        { position: [2, 1.5, -2], scale: 0.5, rotation: [-0.5, 0.5, 0] },
         // Tetrahedron - FEATURED (front and center)
-        { position: [0, 0, 0], scale: 2.2, rotation: [0, 0, 0] },
+        { position: [0, 0, 0], scale: 1.4, rotation: [0, 0, 0] },
         // Icosahedron - background
-        { position: [-2, -1.5, -2], scale: 0.7, rotation: [0.5, -0.5, 0] },
+        { position: [-2, -1.5, -2], scale: 0.5, rotation: [0.5, -0.5, 0] },
         // Torus - background
-        { position: [2, -1.5, -2], scale: 0.7, rotation: [-0.5, -0.5, 0] },
+        { position: [2, -1.5, -2], scale: 0.5, rotation: [-0.5, -0.5, 0] },
         // Cone - background
-        { position: [0, -2.5, -1], scale: 0.7, rotation: [0, 0.3, 0] }
+        { position: [0, -2.5, -1], scale: 0.5, rotation: [0, 0.3, 0] }
       ]
     }
   };
@@ -218,14 +218,15 @@
     update();
   }
 
-  // Normalize GLTF model to fit within a 1-unit bounding box
+  // Normalize GLTF model to fit within a smaller bounding box
   function normalizeModel(gltfScene) {
     const box = new THREE.Box3().setFromObject(gltfScene);
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z);
 
     if (maxDim > 0) {
-      const scale = 1.0 / maxDim;
+      // Reduced from 1.0 to 0.5 for smaller models
+      const scale = 0.5 / maxDim;
       gltfScene.scale.setScalar(scale);
 
       // Recalculate bounding box after scaling

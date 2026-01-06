@@ -622,8 +622,14 @@
           position: sticky;
           top: 0;
           z-index: 300;
-          background: #fff;
-          padding: 12px 0;
+          background: #080808;
+          padding: 10px 0;
+          min-height: 72px;
+          --portfolio-nav-h: 72px;
+          box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+          /* Webflow uses floats; keep this container predictable */
+          display: block;
+          text-align: center;
         }
 
         .main-column.content .nav-menu.w-nav-menu {
@@ -631,6 +637,11 @@
           margin: 0;
           padding: 0;
           background: #080808;
+          /* keep menu from affecting navbar layout */
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
         }
 
         .main-column.content .nav-menu.w-nav-menu.w--open,
@@ -638,7 +649,13 @@
           box-shadow: 0 18px 32px rgba(0,0,0,0.35);
           border-top: 1px solid rgba(255,255,255,0.06);
           border-bottom: 1px solid rgba(255,255,255,0.06);
-          max-height: 80vh;
+          /* fill the available space below the navbar */
+          position: fixed;
+          top: var(--portfolio-nav-h);
+          left: 0;
+          right: 0;
+          bottom: 0;
+          max-height: none;
           overflow-y: auto;
         }
 
@@ -658,17 +675,38 @@
         }
 
         .main-column.content .menu-wrapper.w-nav-button {
-          background: #0b0b0b;
+          background: rgba(255,255,255,0.08);
           color: #fff;
-          padding: 12px 16px;
-          border-radius: 16px;
-          border: 1px solid rgba(255,255,255,0.15);
-          box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+          padding: 12px 18px;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,0.18);
+          box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          min-width: 140px;
+          backdrop-filter: blur(10px);
+          /* Center the MENU button (override Webflow float-right) */
+          float: none !important;
+          position: absolute !important;
+          left: 50% !important;
+          top: 50% !important;
+          transform: translate(-50%, -50%) !important;
+          z-index: 305 !important;
         }
 
         .main-column.content .menu-wrapper .menu {
           font-weight: 700;
           letter-spacing: 2px;
+        }
+
+        .main-column.content .menu-wrapper.w-nav-button:active {
+          transform: translateY(1px);
+        }
+
+        .main-column.content .menu-wrapper .menu-icon {
+          filter: invert(1);
         }
 
         @media screen and (max-width: 767px) {
@@ -696,7 +734,10 @@
           }
 
           .main-column.content .navbar {
-            padding: 10px 0;
+            padding: 8px 0;
+            min-height: 68px;
+            --portfolio-nav-h: 68px;
+            position: sticky;
           }
 
           .main-column.content .nav-menu.w-nav-menu .nav-link {

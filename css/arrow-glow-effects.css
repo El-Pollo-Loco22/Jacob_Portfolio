@@ -58,24 +58,31 @@
   0% {
     box-shadow: 0 0 20px rgba(79, 140, 255, 0.6), 0 0 40px rgba(79, 140, 255, 0.3);
   }
+
   25% {
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.3);
   }
+
   50% {
     box-shadow: 0 0 20px rgba(236, 72, 153, 0.6), 0 0 40px rgba(236, 72, 153, 0.3);
   }
+
   75% {
     box-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.3);
   }
+
   100% {
     box-shadow: 0 0 20px rgba(79, 140, 255, 0.6), 0 0 40px rgba(79, 140, 255, 0.3);
   }
 }
 
 @keyframes arrowIconPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -86,18 +93,22 @@
     border-color: #4f8cff;
     box-shadow: inset 0 0 20px rgba(79, 140, 255, 0.3), 0 0 30px rgba(79, 140, 255, 0.4);
   }
+
   25% {
     border-color: #a855f7;
     box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.3), 0 0 30px rgba(168, 85, 247, 0.4);
   }
+
   50% {
     border-color: #ec4899;
     box-shadow: inset 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.4);
   }
+
   75% {
     border-color: #f59e0b;
     box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.3), 0 0 30px rgba(245, 158, 11, 0.4);
   }
+
   100% {
     border-color: #4f8cff;
     box-shadow: inset 0 0 20px rgba(79, 140, 255, 0.3), 0 0 30px rgba(79, 140, 255, 0.4);
@@ -108,15 +119,19 @@
   0% {
     box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
   }
+
   25% {
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
   }
+
   50% {
     box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
   }
+
   75% {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
   }
+
   100% {
     box-shadow: 0 0 15px rgba(79, 140, 255, 0.5);
   }
@@ -127,18 +142,22 @@
     color: #4f8cff;
     text-shadow: 0 0 15px rgba(79, 140, 255, 0.8), 0 0 25px rgba(79, 140, 255, 0.5);
   }
+
   25% {
     color: #a855f7;
     text-shadow: 0 0 15px rgba(168, 85, 247, 0.8), 0 0 25px rgba(168, 85, 247, 0.5);
   }
+
   50% {
     color: #ec4899;
     text-shadow: 0 0 15px rgba(236, 72, 153, 0.8), 0 0 25px rgba(236, 72, 153, 0.5);
   }
+
   75% {
     color: #f59e0b;
     text-shadow: 0 0 15px rgba(245, 158, 11, 0.8), 0 0 25px rgba(245, 158, 11, 0.5);
   }
+
   100% {
     color: #4f8cff;
     text-shadow: 0 0 15px rgba(79, 140, 255, 0.8), 0 0 25px rgba(79, 140, 255, 0.5);
@@ -149,15 +168,19 @@
   0% {
     box-shadow: 0 0 10px rgba(79, 140, 255, 0.4);
   }
+
   25% {
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
   }
+
   50% {
     box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
   }
+
   75% {
     box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
   }
+
   100% {
     box-shadow: 0 0 10px rgba(79, 140, 255, 0.4);
   }
@@ -169,15 +192,19 @@
   0% {
     filter: drop-shadow(0 0 15px rgba(79, 140, 255, 0.6));
   }
+
   25% {
     filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.6));
   }
+
   50% {
     filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6));
   }
+
   75% {
     filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6));
   }
+
   100% {
     filter: drop-shadow(0 0 15px rgba(79, 140, 255, 0.6));
   }
@@ -189,15 +216,19 @@
   0% {
     filter: drop-shadow(0 0 10px rgba(79, 140, 255, 0.6));
   }
+
   25% {
     filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.6));
   }
+
   50% {
     filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.6));
   }
+
   75% {
     filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
   }
+
   100% {
     filter: drop-shadow(0 0 10px rgba(79, 140, 255, 0.6));
   }
@@ -261,18 +292,22 @@
     color: #4f8cff;
     text-shadow: 0 0 20px rgba(79, 140, 255, 0.8), 0 0 30px rgba(79, 140, 255, 0.5);
   }
+
   25% {
     color: #a855f7;
     text-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 30px rgba(168, 85, 247, 0.5);
   }
+
   50% {
     color: #ec4899;
     text-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 30px rgba(236, 72, 153, 0.5);
   }
+
   75% {
     color: #f59e0b;
     text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 30px rgba(245, 158, 11, 0.5);
   }
+
   100% {
     color: #4f8cff;
     text-shadow: 0 0 20px rgba(79, 140, 255, 0.8), 0 0 30px rgba(79, 140, 255, 0.5);
@@ -309,43 +344,93 @@
 @keyframes buttonOutlineGlow {
   0% {
     border-color: #4f8cff;
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(79, 140, 255, 0.4),
       inset 0 0 20px rgba(79, 140, 255, 0.1);
   }
+
   25% {
     border-color: #a855f7;
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(168, 85, 247, 0.4),
       inset 0 0 20px rgba(168, 85, 247, 0.1);
   }
+
   50% {
     border-color: #ec4899;
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(236, 72, 153, 0.4),
       inset 0 0 20px rgba(236, 72, 153, 0.1);
   }
+
   75% {
     border-color: #f59e0b;
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(245, 158, 11, 0.4),
       inset 0 0 20px rgba(245, 158, 11, 0.1);
   }
+
   100% {
     border-color: #4f8cff;
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(79, 140, 255, 0.4),
       inset 0 0 20px rgba(79, 140, 255, 0.1);
   }
 }
 
-/* Mobile Navigation Effects (arrows removed) */
+/* Mobile Navigation Effects with Color Cycling */
 .w-nav-link {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.w-nav-link:hover {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+.w-nav-link:hover,
+.w-nav-link:focus {
+  animation: navColorCycle 2s ease-in-out infinite;
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(79, 140, 255, 0.4);
+}
+
+/* Navigation link color cycling animation */
+@keyframes navColorCycle {
+  0% {
+    color: #4f8cff;
+    text-shadow: 0 0 15px rgba(79, 140, 255, 0.8), 0 0 25px rgba(79, 140, 255, 0.5);
+    border-color: rgba(79, 140, 255, 0.5);
+    background: rgba(79, 140, 255, 0.1);
+    box-shadow: 0 0 25px rgba(79, 140, 255, 0.4), inset 0 0 15px rgba(79, 140, 255, 0.1);
+  }
+
+  25% {
+    color: #a855f7;
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.8), 0 0 25px rgba(168, 85, 247, 0.5);
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(168, 85, 247, 0.1);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.4), inset 0 0 15px rgba(168, 85, 247, 0.1);
+  }
+
+  50% {
+    color: #ec4899;
+    text-shadow: 0 0 15px rgba(236, 72, 153, 0.8), 0 0 25px rgba(236, 72, 153, 0.5);
+    border-color: rgba(236, 72, 153, 0.5);
+    background: rgba(236, 72, 153, 0.1);
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.4), inset 0 0 15px rgba(236, 72, 153, 0.1);
+  }
+
+  75% {
+    color: #f59e0b;
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.8), 0 0 25px rgba(245, 158, 11, 0.5);
+    border-color: rgba(245, 158, 11, 0.5);
+    background: rgba(245, 158, 11, 0.1);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4), inset 0 0 15px rgba(245, 158, 11, 0.1);
+  }
+
+  100% {
+    color: #4f8cff;
+    text-shadow: 0 0 15px rgba(79, 140, 255, 0.8), 0 0 25px rgba(79, 140, 255, 0.5);
+    border-color: rgba(79, 140, 255, 0.5);
+    background: rgba(79, 140, 255, 0.1);
+    box-shadow: 0 0 25px rgba(79, 140, 255, 0.4), inset 0 0 15px rgba(79, 140, 255, 0.1);
+  }
 }
 
 /* Menu Button Glow */
@@ -359,19 +444,19 @@
   .arrow-link:hover {
     transform: scale(1.08);
   }
-  
+
   .efi-ft-10-feature-4:hover .efi-arrow-icon-4 {
     transform: scale(1.05);
   }
-  
+
   .brand:hover {
     transform: scale(1.05);
   }
-  
+
   .brand::after {
     font-size: 14px;
   }
-  
+
   /* Adjust button outline effects for mobile */
   .button:hover .button-outline {
     transform: scale(1.01);
@@ -379,22 +464,23 @@
 }
 
 @media (max-width: 480px) {
+
   .nav-link:hover,
   .footer-link:hover,
   .w-nav-link:hover {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
   }
-  
+
   .brand::after {
     font-size: 12px;
     letter-spacing: 0.05em;
   }
-  
+
   /* Further reduce button outline effects for small mobile */
   .button:hover .button-outline {
     transform: scale(1.005);
   }
-  
+
   .button:hover .button-text {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
   }
@@ -402,6 +488,7 @@
 
 /* Accessibility - Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .arrow-link:hover,
   .efi-arrow-icon-4,
   .triangle-arrow-wrapper:hover .triangle,
@@ -413,56 +500,56 @@
     animation: none;
     transform: none;
   }
-  
+
   .arrow-link:hover {
     box-shadow: 0 0 20px rgba(79, 140, 255, 0.6);
   }
-  
+
   .arrow-link:hover .arrow-hover-circle {
     border-color: #4f8cff;
     box-shadow: 0 0 15px rgba(79, 140, 255, 0.4);
   }
-  
+
   .efi-ft-10-feature-4:hover .efi-arrow-icon-4::before {
     text-shadow: 0 0 10px #4f8cff;
     color: #4f8cff;
   }
-  
+
   .brand:hover {
     filter: drop-shadow(0 0 15px rgba(79, 140, 255, 0.6));
     transform: scale(1.05);
   }
-  
+
   .brand:hover::after {
     animation: none;
     color: #4f8cff;
     text-shadow: 0 0 15px rgba(79, 140, 255, 0.8);
   }
-  
+
   .brand:hover img {
     transition: all 0.4s ease;
   }
-  
+
   .brand::after {
     transition: all 0.4s ease;
   }
-  
+
   /* Static button outline effects for reduced motion */
   .button:hover .button-outline {
     animation: none;
     border-color: #4f8cff;
-    box-shadow: 
+    box-shadow:
       0 0 15px rgba(79, 140, 255, 0.4),
       inset 0 0 15px rgba(79, 140, 255, 0.1);
     transform: scale(1.02);
   }
-  
+
   .button:hover .button-text {
     animation: none;
     color: #4f8cff;
     text-shadow: 0 0 10px rgba(79, 140, 255, 0.6);
   }
-  
+
   .menu-button:hover .menu-icon {
     filter: drop-shadow(0 0 10px rgba(79, 140, 255, 0.6));
   }
@@ -489,9 +576,7 @@
 
 .button:focus .button-outline {
   border-color: #4f8cff;
-  box-shadow: 
+  box-shadow:
     0 0 15px rgba(79, 140, 255, 0.5),
     inset 0 0 15px rgba(79, 140, 255, 0.1);
 }
-
- 

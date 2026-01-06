@@ -327,11 +327,11 @@
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
       antialias: true,
-      alpha: true
+      alpha: false
     });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000, 0);
+    renderer.setClearColor(0x000000, 1);
     container.appendChild(renderer.domElement);
 
     // Lighting

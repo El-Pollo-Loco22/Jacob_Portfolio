@@ -40,13 +40,15 @@
 /* Responsive adjustments */
 @media screen and (max-width: 991px) {
   #portfolio-3d-container {
-    min-height: 400px;
+    height: 100%;
+    min-height: auto;
   }
 }
 
 @media screen and (max-width: 768px) {
   #portfolio-3d-container {
-    min-height: 300px;
+    height: 100%;
+    min-height: auto;
   }
 }
 

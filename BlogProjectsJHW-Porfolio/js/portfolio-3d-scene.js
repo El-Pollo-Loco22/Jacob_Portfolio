@@ -23,7 +23,7 @@ class Portfolio3DScene {
         gridColor: 0x00ffff,
         backgroundColor: 0x0a0a1a,
         modelScale: 1.44,
-        modelPosition: { x: 0, y: 0, z: 1.5 },
+        modelPosition: { x: 0, y: 0.4, z: 1.5 },
         modelRotation: { x: 0.3, y: 0, z: 0 }
       },
       'ux': {
@@ -31,7 +31,7 @@ class Portfolio3DScene {
         gridColor: 0xff00ff,
         backgroundColor: 0x1a0a1a,
         modelScale: 1.8,
-        modelPosition: { x: 0, y: -0.3, z: 1.5 },
+        modelPosition: { x: 0, y: 0.1, z: 1.5 },
         modelRotation: { x: 0.15, y: 0, z: 0 }
       },
       'video': {
@@ -39,7 +39,7 @@ class Portfolio3DScene {
         gridColor: 0xffaa00,
         backgroundColor: 0x1a1a0a,
         modelScale: 2.25,
-        modelPosition: { x: 0, y: -0.2, z: 1.5 },
+        modelPosition: { x: 0, y: 0.2, z: 1.5 },
         modelRotation: { x: 0.2, y: 0, z: 0 }
       },
       'mixed-media': {
@@ -47,7 +47,7 @@ class Portfolio3DScene {
         gridColor: 0x00ff88,
         backgroundColor: 0x0a1a1a,
         modelScale: 0.8,
-        modelPosition: { x: 0, y: 0, z: 1.5 },
+        modelPosition: { x: 0, y: 0.4, z: 1.5 },
         modelRotation: { x: 0.2, y: 0, z: 0 }
       }
     };
@@ -149,7 +149,7 @@ class Portfolio3DScene {
     // Horizontal lines
     for (let i = 0; i <= divisions; i++) {
       const points = [];
-      const y = -2; // Grid height
+      const y = -1.5; // Raised from -2
       const z = -size / 2 + i * step;
       
       points.push(new THREE.Vector3(-size / 2, y, z));
@@ -163,7 +163,7 @@ class Portfolio3DScene {
     // Vertical lines
     for (let i = 0; i <= divisions; i++) {
       const points = [];
-      const y = -2;
+      const y = -1.5; // Raised from -2
       const x = -size / 2 + i * step;
       
       points.push(new THREE.Vector3(x, y, -size / 2));

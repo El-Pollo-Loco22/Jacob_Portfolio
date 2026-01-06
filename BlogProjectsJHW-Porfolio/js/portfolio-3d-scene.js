@@ -22,7 +22,7 @@ class Portfolio3DScene {
         modelPath: '../3DAssts/mecha_gltf/scene.gltf',
         gridColor: 0x00ffff,
         backgroundColor: 0x0a0a1a,
-        modelScale: 1.44,
+        modelScale: 1.22,
         modelPosition: { x: 0, y: 0.4, z: 1.5 },
         modelRotation: { x: 0.3, y: 0, z: 0 }
       },

@@ -1,11 +1,11 @@
 // Custom JavaScript for Jacob Williams Portfolio
 // Enhanced functionality and user experience improvements
 
-(function() {
+(function () {
     'use strict';
 
     // Wait for DOM to be ready
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         initializePortfolio();
     });
 
@@ -29,8 +29,8 @@
         if (!preloader) return;
 
         // Hide preloader after page loads
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
                 document.body.classList.remove('loading');
@@ -42,13 +42,13 @@
     function initSmoothScrolling() {
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
                     const targetPosition = target.offsetTop - headerHeight - 20;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -60,7 +60,7 @@
         // Smooth scroll for "My work" button
         const workButton = document.querySelector('.circle-link');
         if (workButton) {
-            workButton.addEventListener('click', function(e) {
+            workButton.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector('#Select');
                 if (target) {
@@ -114,10 +114,10 @@
         }
 
         // Parallax effect for background elements
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.background-wrapper');
-            
+
             parallaxElements.forEach(element => {
                 const speed = 0.5;
                 element.style.transform = `translateY(${scrolled * speed}px)`;
@@ -128,10 +128,10 @@
     // ===== FORM ENHANCEMENTS =====
     function initFormEnhancements() {
         const forms = document.querySelectorAll('form');
-        
+
         forms.forEach(form => {
             // Add loading states
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
                 if (submitBtn) {
                     submitBtn.disabled = true;
@@ -176,7 +176,7 @@
 
     function showFieldValidation(field, isValid, message) {
         let messageEl = field.parentNode.querySelector('.validation-message');
-        
+
         if (!isValid) {
             if (!messageEl) {
                 messageEl = document.createElement('div');
@@ -206,14 +206,14 @@
     function initInteractiveElements() {
         // Enhanced hover effects for project cards
         const projectCards = document.querySelectorAll('.brix---team-v9-wrapper-3');
-        
+
         projectCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
                 this.style.transition = 'all 0.3s ease';
             });
 
-            card.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
@@ -239,6 +239,7 @@
 
         if (!navMenu || !menuButton) return;
 
+        console.log('Closing mobile menu');
         navMenu.classList.remove('w--open', 'is-open');
         navMenu.removeAttribute('data-nav-menu-open');
         menuButton.classList.remove('w--open');
@@ -252,6 +253,7 @@
 
         if (!navMenu || !menuButton) return;
 
+        console.log('Opening mobile menu');
         navMenu.classList.add('w--open', 'is-open');
         navMenu.setAttribute('data-nav-menu-open', 'true');
         menuButton.classList.add('w--open');
@@ -263,13 +265,19 @@
         const navMenu = document.querySelector('.mobile-nav-menu');
         const menuButton = document.querySelector('.menu-button');
 
-        if (!navMenu || !menuButton) return;
+        if (!navMenu || !menuButton) {
+            console.error('Mobile menu or button not found!');
+            return;
+        }
+
+        console.log('Mobile nav initialized');
 
         // Toggle menu visibility without relying on Webflow's script
         menuButton.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
 
+            console.log('Menu button clicked!');
             const isOpen = navMenu.classList.contains('w--open') || navMenu.classList.contains('is-open');
             if (isOpen) {
                 closeMobileMenu();
@@ -277,6 +285,22 @@
                 openMobileMenu();
             }
         });
+
+        // Also add click listener to the wrapper for extra safety
+        const wrapper = menuButton.querySelector('.menu-button-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                console.log('Menu wrapper clicked!');
+                const isOpen = navMenu.classList.contains('w--open') || navMenu.classList.contains('is-open');
+                if (isOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+        }
 
         // Close menu when a nav link is tapped
         navMenu.addEventListener('click', (event) => {
@@ -303,7 +327,7 @@
     function typeWriter(element, text, speed) {
         element.textContent = '';
         let i = 0;
-        
+
         function type() {
             if (i < text.length) {
                 element.textContent += text.charAt(i);
@@ -311,7 +335,7 @@
                 setTimeout(type, speed);
             }
         }
-        
+
         setTimeout(type, 1000);
     }
 
@@ -319,11 +343,11 @@
     function initPerformanceOptimizations() {
         // Debounced scroll handler
         let scrollTimeout;
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (scrollTimeout) {
                 clearTimeout(scrollTimeout);
             }
-            scrollTimeout = setTimeout(function() {
+            scrollTimeout = setTimeout(function () {
                 // Handle scroll-based animations
                 updateScrollBasedElements();
             }, 16); // ~60fps
@@ -335,7 +359,7 @@
             if (img.complete) {
                 img.classList.add('loaded');
             } else {
-                img.addEventListener('load', function() {
+                img.addEventListener('load', function () {
                     this.classList.add('loaded');
                 });
             }
@@ -345,7 +369,7 @@
     function updateScrollBasedElements() {
         const scrolled = window.pageYOffset;
         const navbar = document.querySelector('.navbar');
-        
+
         // Navbar background on scroll
         if (scrolled > 100) {
             navbar.classList.add('scrolled');
@@ -357,7 +381,7 @@
     // ===== ACCESSIBILITY FEATURES =====
     function initAccessibilityFeatures() {
         // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             // Escape key to close modals/menus
             if (e.key === 'Escape') {
                 const openMenus = document.querySelectorAll('.w-nav-menu.w--open');
@@ -374,18 +398,18 @@
         });
 
         // Mouse navigation
-        document.addEventListener('mousedown', function() {
+        document.addEventListener('mousedown', function () {
             document.body.classList.remove('keyboard-navigation');
         });
 
         // Focus management
         const focusableElements = document.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
         focusableElements.forEach(element => {
-            element.addEventListener('focus', function() {
+            element.addEventListener('focus', function () {
                 this.classList.add('focused');
             });
-            
-            element.addEventListener('blur', function() {
+
+            element.addEventListener('blur', function () {
                 this.classList.remove('focused');
             });
         });
@@ -397,7 +421,7 @@
         trackPageView();
 
         // Track interactions
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const target = e.target.closest('a, button');
             if (target) {
                 trackInteraction(target);
@@ -406,7 +430,7 @@
 
         // Track scroll depth
         let maxScroll = 0;
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrollPercent = Math.round((window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100);
             if (scrollPercent > maxScroll) {
                 maxScroll = scrollPercent;
@@ -435,7 +459,7 @@
     }
 
     // ===== UTILITY FUNCTIONS =====
-    
+
     // Debounce function
     function debounce(func, wait) {
         let timeout;
@@ -452,7 +476,7 @@
     // Throttle function
     function throttle(func, limit) {
         let inThrottle;
-        return function() {
+        return function () {
             const args = arguments;
             const context = this;
             if (!inThrottle) {

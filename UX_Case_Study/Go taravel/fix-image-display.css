@@ -1,0 +1,29 @@
+/* Fix for Frame 2 flowchart image not displaying */
+
+.wire-frames-got-flow {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  max-width: 800px !important;
+  height: auto !important;
+  margin: 20px auto !important;
+}
+
+/* Ensure all wire-frames images display properly */
+.image-91 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure mid-test-grid container doesn't hide content */
+.mid-test-grid {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.mid-test {
+  display: block !important;
+  visibility: visible !important;
+}

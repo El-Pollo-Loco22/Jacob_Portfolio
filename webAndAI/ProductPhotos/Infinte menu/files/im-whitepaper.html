@@ -33,39 +33,6 @@
     overflow-x: hidden;
   }
 
-  .return-portfolio {
-    position: fixed;
-    top: 18px;
-    left: 18px;
-    z-index: 1500;
-    padding: 10px 16px;
-    border-radius: 999px;
-    border: 1px solid rgba(250,245,239,0.2);
-    background: rgba(27, 24, 22, 0.85);
-    color: var(--im-cream);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    animation: flashGlow 1.8s ease-in-out infinite;
-  }
-
-  .return-portfolio:hover {
-    text-decoration: none;
-    border-color: rgba(196,123,90,0.6);
-    box-shadow: var(--glow-copper);
-  }
-
-  @keyframes flashGlow {
-    0%, 100% { opacity: 0.6; box-shadow: 0 0 0 rgba(196, 123, 90, 0); }
-    50% { opacity: 1; box-shadow: 0 0 18px rgba(196, 123, 90, 0.35); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .return-portfolio { animation: none; }
-  }
-
   body::before {
     content: '';
     position: fixed;
@@ -654,7 +621,6 @@
 </style>
 </head>
 <body>
-<a class="return-portfolio" href="../BlogProjectsJHW-Porfolio/portfolio.html">Return to Portfolio</a>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
@@ -794,8 +760,8 @@
         </ul>
       </div>
       <div class="screenshot-frame">
-        <button type="button" class="lightbox-trigger" data-full="ProductPhotos/Infinte%20menu/Screenshot%202026-02-06%20at%203.51.19%E2%80%AFPM.png" aria-label="Expand recipe discovery screenshot">
-          <img src="ProductPhotos/Infinte%20menu/Screenshot%202026-02-06%20at%203.51.19%E2%80%AFPM.png" alt="Recipe search results with active dietary filters and AI suggestion cards">
+        <button type="button" class="lightbox-trigger" data-full="../Screenshot%202026-02-06%20at%203.51.19%E2%80%AFPM.png" aria-label="Expand recipe discovery screenshot">
+          <img src="../Screenshot%202026-02-06%20at%203.51.19%E2%80%AFPM.png" alt="Recipe search results with active dietary filters and AI suggestion cards">
         </button>
         <div class="screenshot-caption">Recipe search results with active dietary filters and AI suggestion cards.</div>
       </div>
@@ -822,8 +788,8 @@
         </ul>
       </div>
       <div class="screenshot-frame">
-        <button type="button" class="lightbox-trigger" data-full="ProductPhotos/Infinte%20menu/Inventory%20Tracker%20.png" aria-label="Expand inventory tracker screenshot">
-          <img src="ProductPhotos/Infinte%20menu/Inventory%20Tracker%20.png" alt="Inventory dashboard with expiry alerts and location-based organization">
+        <button type="button" class="lightbox-trigger" data-full="../Inventory%20Tracker%20.png" aria-label="Expand inventory tracker screenshot">
+          <img src="../Inventory%20Tracker%20.png" alt="Inventory dashboard with expiry alerts and location-based organization">
         </button>
         <div class="screenshot-caption">Inventory dashboard with expiry alerts and location-based organization.</div>
       </div>
@@ -850,8 +816,8 @@
         </ul>
       </div>
       <div class="screenshot-frame">
-        <button type="button" class="lightbox-trigger" data-full="ProductPhotos/Infinte%20menu/Meal%20calander%20.png" aria-label="Expand meal planner screenshot">
-          <img src="ProductPhotos/Infinte%20menu/Meal%20calander%20.png" alt="Weekly meal calendar with drag-and-drop recipes and nutrition summary">
+        <button type="button" class="lightbox-trigger" data-full="../Meal%20calander%20.png" aria-label="Expand meal planner screenshot">
+          <img src="../Meal%20calander%20.png" alt="Weekly meal calendar with drag-and-drop recipes and nutrition summary">
         </button>
         <div class="screenshot-caption">Weekly meal calendar with drag-and-drop recipes and nutrition summary.</div>
       </div>
@@ -907,7 +873,7 @@
     <h2>Experience <span class="accent">Flow</span></h2>
     <p class="section-intro">From craving to clean kitchen — six integrated steps.</p>
 
-    <iframe class="flow-embed" src="ProductPhotos/Infinte%20menu/files/im-flowchart.html" title="Infinite Menu experience flowchart" style="margin-bottom: 24px;"></iframe>
+    <iframe class="flow-embed" src="im-flowchart.html" title="Infinite Menu experience flowchart" style="margin-bottom: 24px;"></iframe>
 
     <div class="card-grid">
       <div class="card">

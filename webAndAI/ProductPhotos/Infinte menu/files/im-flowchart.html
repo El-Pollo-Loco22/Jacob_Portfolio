@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Infinite Menu — User Journey Flow</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --im-cream: #FAF5EF;
+    --im-dark: #1B1816;
+    --im-dark-card: #211E1B;
+    --im-copper: #C47B5A;
+    --im-copper-dim: #A8674A;
+    --im-terracotta: #D4845A;
+    --im-sage: #7A9E7E;
+    --im-wine: #8B3A4A;
+    --im-gold: #C9A96E;
+    --im-slate: #6B7B8D;
+    --glow-copper: 0 0 28px rgba(196,123,90,0.2);
+    --glow-sage: 0 0 28px rgba(122,158,126,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--im-dark);
+    color: var(--im-cream);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Subtle warm grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    z-index: 1000;
+  }
+
+  .flow-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* ── Header ── */
+  .flow-header { text-align: center; margin-bottom: 56px; }
+
+  .flow-header .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--im-copper);
+    margin-bottom: 14px;
+    display: block;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .flow-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--im-cream);
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .flow-header h1 span { color: var(--im-copper); text-shadow: var(--glow-copper); }
+
+  .flow-header .subtitle {
+    font-size: 15px;
+    color: rgba(250,245,239,0.4);
+    margin-top: 10px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.6s;
+  }
+
+  /* ── Thin copper rule ── */
+  .copper-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--im-copper);
+    opacity: 0.25;
+    margin: 0 auto 48px;
+    animation: fadeUp 0.5s ease forwards 0.7s;
+    opacity: 0;
+  }
+
+  /* ── Vertical Spine ── */
+  .flow-spine {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flow-spine::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: linear-gradient(
+      180deg,
+      var(--im-copper) 0%,
+      var(--im-sage) 35%,
+      var(--im-gold) 60%,
+      var(--im-wine) 85%,
+      var(--im-slate) 100%
+    );
+    opacity: 0.2;
+  }
+
+  /* ── Steps ── */
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 22px 0;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .flow-step:nth-child(1) { animation-delay: 0.8s; }
+  .flow-step:nth-child(2) { animation-delay: 1.0s; }
+  .flow-step:nth-child(3) { animation-delay: 1.2s; }
+  .flow-step:nth-child(4) { animation-delay: 1.4s; }
+  .flow-step:nth-child(5) { animation-delay: 1.6s; }
+  .flow-step:nth-child(6) { animation-delay: 1.8s; }
+
+  .node-marker {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .flow-step:hover .node-marker { transform: scale(1.06); }
+
+  .node-marker.copper { background: rgba(196,123,90,0.08);  border: 1.5px solid var(--im-copper); color: var(--im-copper); }
+  .node-marker.sage   { background: rgba(122,158,126,0.08); border: 1.5px solid var(--im-sage);   color: var(--im-sage);   }
+  .node-marker.gold   { background: rgba(201,169,110,0.08); border: 1.5px solid var(--im-gold);   color: var(--im-gold);   }
+  .node-marker.wine   { background: rgba(139,58,74,0.08);   border: 1.5px solid var(--im-wine);   color: var(--im-wine);   }
+  .node-marker.slate  { background: rgba(107,123,141,0.08); border: 1.5px solid var(--im-slate);  color: var(--im-slate);  }
+
+  .flow-step:hover .node-marker.copper { box-shadow: 0 0 20px rgba(196,123,90,0.2);  }
+  .flow-step:hover .node-marker.sage   { box-shadow: 0 0 20px rgba(122,158,126,0.2); }
+  .flow-step:hover .node-marker.gold   { box-shadow: 0 0 20px rgba(201,169,110,0.2); }
+  .flow-step:hover .node-marker.wine   { box-shadow: 0 0 20px rgba(139,58,74,0.2);   }
+  .flow-step:hover .node-marker.slate  { box-shadow: 0 0 20px rgba(107,123,141,0.2); }
+
+  .node-content { flex: 1; padding-top: 2px; }
+
+  .node-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--im-cream);
+  }
+
+  .node-content p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(250,245,239,0.45);
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  .node-content .tech-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 6px;
+    font-weight: 500;
+  }
+
+  .tech-tag.co { background: rgba(196,123,90,0.07);  color: var(--im-copper-dim); border: 1px solid rgba(196,123,90,0.12); }
+  .tech-tag.sg { background: rgba(122,158,126,0.07); color: var(--im-sage);       border: 1px solid rgba(122,158,126,0.12); }
+  .tech-tag.go { background: rgba(201,169,110,0.07); color: var(--im-gold);       border: 1px solid rgba(201,169,110,0.12); }
+  .tech-tag.wi { background: rgba(139,58,74,0.07);   color: var(--im-wine);       border: 1px solid rgba(139,58,74,0.12);   }
+
+  .connector { height: 20px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .flow-container { padding: 40px 16px 60px; }
+    .node-marker { width: 48px; height: 48px; font-size: 15px; border-radius: 10px; }
+    .flow-spine::before { left: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flow-container">
+
+  <div class="flow-header">
+    <span class="tag">User Experience Flow</span>
+    <h1>The <span>Infinite Menu</span> Journey</h1>
+    <p class="subtitle">From craving to clean kitchen — six integrated steps</p>
+  </div>
+  <div class="copper-rule"></div>
+
+  <div class="flow-spine">
+
+    <div class="flow-step">
+      <div class="node-marker copper">01</div>
+      <div class="node-content">
+        <h3>Recipe Discovery</h3>
+        <p>Search across 500K+ recipes with 15+ dietary filters, cuisine selectors, calorie ranges, and cooking time constraints. AI-powered personality-driven suggestions surface unexpected finds.</p>
+        <span class="tech-tag co">Spoonacular API</span>
+        <span class="tech-tag co">15+ Filters</span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="flow-step">
+      <div class="node-marker copper">02</div>
+      <div class="node-content">
+        <h3>Meal Planning</h3>
+        <p>Drag-and-drop recipes into a weekly calendar. Multi-meal support per day, serving management, and nutritional analytics across the full 7-day cycle.</p>
+        <span class="tech-tag co">Weekly Calendar</span>
+        <span class="tech-tag sg">Nutritional Analytics</span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="flow-step">
+      <div class="node-marker sage">03</div>
+      <div class="node-content">
+        <h3>Inventory Check</h3>
+        <p>Smart pantry tracking across fridge, freezer, and pantry locations. Expiry monitoring with visual alerts flags what needs to be used before it's wasted.</p>
+        <span class="tech-tag sg">Multi-Location</span>
+        <span class="tech-tag sg">Expiry Alerts</span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="flow-step">
+      <div class="node-marker gold">04</div>
+      <div class="node-content">
+        <h3>Intelligent Suggestions</h3>
+        <p>The recommendation engine combines inventory state, dietary preferences, and meal history to suggest recipes that use what you have before it expires.</p>
+        <span class="tech-tag go">AI Suggestions</span>
+        <span class="tech-tag go">Inventory-Aware</span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="flow-step">
+      <div class="node-marker wine">05</div>
+      <div class="node-content">
+        <h3>Cook & Deduct</h3>
+        <p>When you cook a recipe, ingredients are automatically deducted from inventory. Nutritional data logs to your weekly analytics dashboard.</p>
+        <span class="tech-tag wi">Auto-Deduction</span>
+        <span class="tech-tag go">Analytics</span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="flow-step">
+      <div class="node-marker slate">06</div>
+      <div class="node-content">
+        <h3>Collect & Share</h3>
+        <p>Save favorites to color-coded personal collections. Unified search across personal and platform recipes. Share collections with family or friends.</p>
+        <span class="tech-tag co">Collections</span>
+        <span class="tech-tag sg">Social Sharing</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -418,6 +418,57 @@
     color: rgba(245,240,232,0.6);
   }
 
+  /* ── Lightbox ── */
+  .lightbox-trigger {
+    background: none;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    cursor: zoom-in;
+  }
+
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+
+  .lightbox-overlay.open {
+    display: flex;
+  }
+
+  .lightbox-content {
+    max-width: min(1200px, 92vw);
+    max-height: 90vh;
+    position: relative;
+  }
+
+  .lightbox-image {
+    width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(245,240,232,0.2);
+    background: rgba(30, 30, 30, 0.9);
+    color: var(--rex-cream);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
   /* ── Roadmap ── */
   .roadmap-grid {
     display: grid;
@@ -546,7 +597,7 @@
     <span class="section-tag">AI-Powered Dining Discovery</span>
     <h1>Restaurant-<span class="green">REX</span></h1>
     <p class="lead">Replacing complex search filters with natural conversation. Rex understands context, learns your taste, and explains every recommendation.</p>
-    <a href="#" class="cta-btn">Try Restaurant-REX</a>
+    <a href="https://restaurant-rex.vercel.app/" class="cta-btn">Try Restaurant-REX</a>
   </div>
 </section>
 
@@ -582,15 +633,21 @@
 
     <div class="image-grid">
       <div class="image-tile">
-        <img src="Landing_page%20.png" alt="Restaurant-REX landing page hero experience">
+        <button type="button" class="lightbox-trigger" data-full="Landing_page%20.png" aria-label="Expand landing page screenshot">
+          <img src="Landing_page%20.png" alt="Restaurant-REX landing page hero experience">
+        </button>
         <div class="label">Landing page with conversational entry point</div>
       </div>
       <div class="image-tile">
-        <img src="Recomendations_with%20cards.png" alt="Recommendation results with cards">
+        <button type="button" class="lightbox-trigger" data-full="Recomendations_with%20cards.png" aria-label="Expand recommendations with cards screenshot">
+          <img src="Recomendations_with%20cards.png" alt="Recommendation results with cards">
+        </button>
         <div class="label">Recommendations with explainable cards</div>
       </div>
       <div class="image-tile">
-        <img src="Recomendations_with_out%20cards%20.png" alt="Recommendation results without cards">
+        <button type="button" class="lightbox-trigger" data-full="Recomendations_with_out%20cards%20.png" aria-label="Expand recommendations without cards screenshot">
+          <img src="Recomendations_with_out%20cards%20.png" alt="Recommendation results without cards">
+        </button>
         <div class="label">Streamlined results view without cards</div>
       </div>
     </div>
@@ -728,7 +785,9 @@
         </ul>
       </div>
       <div class="screenshot-frame">
-        <img src="RexGallery.png" alt="Rex Gallery showing grouped conversations with filters">
+        <button type="button" class="lightbox-trigger" data-full="RexGallery.png" aria-label="Expand Rex Gallery screenshot">
+          <img src="RexGallery.png" alt="Rex Gallery showing grouped conversations with filters">
+        </button>
         <div class="screenshot-caption">Rex Gallery organizes conversations by intent with quick filters.</div>
       </div>
     </div>
@@ -755,7 +814,9 @@
         </ul>
       </div>
       <div class="screenshot-frame">
-        <img src="Experince%20logging%20.png" alt="Experience logging form with tags and review cards">
+        <button type="button" class="lightbox-trigger" data-full="Experince%20logging%20.png" aria-label="Expand experience logging screenshot">
+          <img src="Experince%20logging%20.png" alt="Experience logging form with tags and review cards">
+        </button>
         <div class="screenshot-caption">Experience logging captures taste tags, notes, and outcomes.</div>
       </div>
     </div>
@@ -867,6 +928,55 @@
     <p>Restaurant-REX · AI-Powered Dining Discovery · White Paper 2025</p>
   </div>
 </footer>
+
+<div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
+  <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Expanded image">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close image">×</button>
+    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+  </div>
+</div>
+
+<script>
+  const lightboxOverlay = document.getElementById('lightbox-overlay');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+  function openLightbox(src, alt) {
+    lightboxImage.src = src;
+    lightboxImage.alt = alt || '';
+    lightboxOverlay.classList.add('open');
+    lightboxOverlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    lightboxOverlay.classList.remove('open');
+    lightboxOverlay.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
+  }
+
+  lightboxTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const img = trigger.querySelector('img');
+      const fullSrc = trigger.getAttribute('data-full') || (img ? img.src : '');
+      openLightbox(fullSrc, img ? img.alt : '');
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxOverlay.addEventListener('click', (event) => {
+    if (event.target === lightboxOverlay) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+</script>
 
 </body>
 </html>

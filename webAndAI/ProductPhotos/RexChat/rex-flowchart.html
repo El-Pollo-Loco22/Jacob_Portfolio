@@ -106,20 +106,7 @@
   }
 
   .flow-spine::before {
-    content: '';
-    position: absolute;
-    left: 32px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-      180deg,
-      var(--rex-green) 0%,
-      var(--rex-amber) 40%,
-      var(--rex-cyan) 70%,
-      var(--rex-purple) 100%
-    );
-    opacity: 0.3;
+    display: none;
   }
 
   /* ── Step Nodes ── */
@@ -222,16 +209,11 @@
   }
 
   .connector::before {
-    content: '';
-    width: 2px;
-    height: 100%;
-    position: absolute;
-    left: 32px;
+    display: none;
   }
 
   .connector svg {
-    margin-left: -5px;
-    opacity: 0.25;
+    display: none;
   }
 
   /* ── Branch indicator ── */

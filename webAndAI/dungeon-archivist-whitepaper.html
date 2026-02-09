@@ -439,6 +439,21 @@
     color: rgba(240,230,211,0.55);
   }
 
+  /* ── Side-by-side lightbox pair ── */
+  .lightbox-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 700px) { .lightbox-pair { grid-template-columns: 1fr; } }
+
+  .lightbox-pair .screenshot-frame img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
   .flow-embed {
     width: 100%;
     min-height: 380px;
@@ -1062,6 +1077,21 @@
     <p class="section-intro">From question to cited answer — seven steps through the archive.</p>
 
     <iframe class="flow-embed" src="ProductPhotos/dungeon-archivist/da-flowchart.html" title="Dungeon Archivist query experience flowchart" style="margin-bottom: 24px;"></iframe>
+
+    <div class="lightbox-pair">
+      <div class="screenshot-frame">
+        <button type="button" class="lightbox-trigger" data-full="ProductPhotos/dungeon-archivist/2D%20-%20View.gif" aria-label="Expand 2D query view GIF">
+          <img src="ProductPhotos/dungeon-archivist/2D%20-%20View.gif" alt="2D query view showing the Dungeon Archivist interface">
+        </button>
+        <div class="screenshot-caption">2D query view — asking and receiving answers.</div>
+      </div>
+      <div class="screenshot-frame">
+        <button type="button" class="lightbox-trigger" data-full="ProductPhotos/dungeon-archivist/3D%20-%20Room%20Video.gif" aria-label="Expand 3D room video GIF">
+          <img src="ProductPhotos/dungeon-archivist/3D%20-%20Room%20Video.gif" alt="3D dungeon room environment walkthrough">
+        </button>
+        <div class="screenshot-caption">3D dungeon room — immersive environment walkthrough.</div>
+      </div>
+    </div>
 
     <div class="card-grid">
       <div class="card">

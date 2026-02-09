@@ -31,3 +31,6 @@ node_modules/
 # Build outputs
 dist/
 build/ 
+# Large GIF files
+webAndAI/ProductPhotos/dungeon-archivist/2D - View.gif
+webAndAI/ProductPhotos/dungeon-archivist/3D - Room Video.gif

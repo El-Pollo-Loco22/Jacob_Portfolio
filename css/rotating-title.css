@@ -202,14 +202,25 @@
     font-size: 2.2rem;
   }
 
-  /* Position circle button in top left corner on mobile */
+  /* Center circle button cleanly beneath the text on mobile */
   .circle-link {
-    position: fixed !important;
-    top: 20px !important;
-    left: 20px !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 40px auto 0 !important;
     z-index: 100 !important;
-    width: 80px !important;
-    height: 80px !important;
+    width: 120px !important;
+    height: 120px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .circle-link .button-text {
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    text-align: center;
   }
 
   .circle-link:hover {
@@ -240,14 +251,25 @@
     letter-spacing: 0.01em;
   }
 
-  /* Position circle button in top left corner on small mobile */
+  /* Position circle button beneath the text on small mobile */
   .circle-link {
-    position: fixed !important;
-    top: 15px !important;
-    left: 15px !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 30px auto 0 !important;
     z-index: 100 !important;
-    width: 70px !important;
-    height: 70px !important;
+    width: 110px !important;
+    height: 110px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .circle-link .button-text {
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+    text-align: center;
   }
 
   .circle-link:hover {

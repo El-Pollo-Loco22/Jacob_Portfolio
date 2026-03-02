@@ -31,6 +31,9 @@ node_modules/
 # Build outputs
 dist/
 build/ 
+# Raw video exports (over GitHub's 100 MB limit)
+*.mov
+
 # Large GIF files
 webAndAI/ProductPhotos/dungeon-archivist/2D - View.gif
 webAndAI/ProductPhotos/dungeon-archivist/3D - Room Video.gif

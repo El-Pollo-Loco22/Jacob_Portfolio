@@ -152,6 +152,7 @@
       max-width: none;
       overflow-y: auto;
       overflow-x: hidden;
+      background-color: #000;
     }
 
     /* Ensure articles take full width */
@@ -162,6 +163,35 @@
     .article {
       width: 100%;
       box-sizing: border-box;
+      background-color: #000;
+      color: #fff;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+
+    .article:hover {
+      color: #fff;
+      background-color: #0a0a0a;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .article .thumbnail-title,
+    .article .arrow,
+    .article .article-text-wrapper p,
+    .article .article-info-text {
+      color: #fff;
+    }
+
+    .article .article-info-text.tag {
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      background-color: rgba(0, 255, 255, 0.08);
+      border-radius: 30px;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.35), inset 0 0 6px rgba(0, 255, 255, 0.1);
+      text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
     }
 
     /* Responsive adjustments */
@@ -972,20 +1002,6 @@
 
       <!-- Mixed Media Tab Content -->
       <div id="mixed-media" class="tab-content">
-        <a href="../MultiMedia%20/jacobhwilliams.me-162/index.html" target="_blank"
-          class="article w-inline-block w-clearfix">
-          <div class="image-wrapper"><img
-              src="../MultiMedia%20/jacobhwilliams.me-162/images/Screenshot%202025-10-02%20at%2012.59.27%E2%80%AFPM.png"
-              width="109" alt="Records and Richards" class="thumbnail"></div>
-          <section class="article-text-wrapper w-clearfix">
-            <h2 class="arrow">❯</h2>
-            <h2 class="thumbnail-title">Records and Richards</h2>
-            <div class="article-info-wrapper">
-              <div class="article-info-text">Poster</div>
-              <div class="article-info-text tag">Branding</div>
-            </div>
-          </section>
-        </a>
         <a href="../MultiMedia%20/Cara's%20/index.html" target="_blank" class="article w-inline-block w-clearfix">
           <div class="image-wrapper"><img
               src="../MultiMedia%20/Cara's%20/images/Screenshot%202025-10-02%20at%2012.37.43%E2%80%AFPM.png" width="109"

@@ -199,14 +199,6 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      /* Override mobile-nav-fix.css */
-      .navbar {
-        position: relative !important;
-        top: auto !important;
-        background-color: #fff !important;
-        z-index: 100;
-      }
-
       .main-column.header .logo {
         position: absolute;
         bottom: 50px;
@@ -514,14 +506,6 @@
         font-size: 1.5rem;
       }
     }
-
-    /* Force navbar below preloader z-index */
-    .navbar,
-    .w-nav,
-    .nav-menu,
-    .w-nav-menu {
-      z-index: 100 !important;
-    }
   </style>
 
   <div class="all-content w-clearfix">
@@ -632,141 +616,50 @@
           transform: rotate(0deg);
         }
 
-        /* Mobile nav dropdown polish */
-        .main-column.content .navbar {
+        /* Category tabs: the same tab row on every screen size. Deliberately not
+           Webflow's .navbar/.w-nav-menu, which ../css/mobile-nav-fix.css turns
+           into a hidden dropdown on small screens. */
+        .portfolio-tabs {
           position: sticky;
           top: 0;
           z-index: 100;
-          background: #080808;
+          display: flex;
+          justify-content: center;
+          gap: 8px;
           padding: 10px 0;
-          min-height: 72px;
-          --portfolio-nav-h: 72px;
-          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-          /* Webflow uses floats; keep this container predictable */
-          display: block;
-          text-align: center;
-        }
-
-        .main-column.content .nav-menu.w-nav-menu {
-          width: 100%;
-          margin: 0;
-          padding: 0;
           background: #080808;
-          /* keep menu from affecting navbar layout */
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
         }
 
-        .main-column.content .nav-menu.w-nav-menu.w--open,
-        .main-column.content .nav-menu.w-nav-menu[data-nav-menu-open] {
-          box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          /* fill the available space below the navbar */
-          position: fixed;
-          top: var(--portfolio-nav-h);
-          left: 0;
-          right: 0;
-          bottom: 0;
-          max-height: none;
-          overflow-y: auto;
-        }
+        /* Tab accent colors match the vaporwave palettes in js/vaporwave-bg.js */
+        .nav-link[data-tab="articles"] { --tab-color: #00ffff; }
+        .nav-link[data-tab="ux"] { --tab-color: #ff00ff; }
+        .nav-link[data-tab="video"] { --tab-color: #ffaa00; }
+        .nav-link[data-tab="mixed-media"] { --tab-color: #00ff88; }
 
-        /* Desktop: constrain the open menu to ONLY the right/content column */
-        @media screen and (min-width: 992px) {
-
-          /* Position menu button on the right and make it visible */
-          .main-column.content .menu-wrapper.w-nav-button {
-            display: block !important;
-            position: absolute !important;
-            right: 30px !important;
-            left: auto !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-          }
-
-          /* Make nav menu a right-aligned dropdown */
-          .main-column.content .nav-menu.w-nav-menu {
-            position: fixed;
-            top: 60px;
-            left: auto;
-            right: 30px;
-            width: 300px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-          }
-
-          .main-column.content .nav-menu.w-nav-menu.w--open,
-          .main-column.content .nav-menu.w-nav-menu[data-nav-menu-open] {
-            position: fixed;
-            top: 60px;
-            left: auto;
-            right: 30px;
-            bottom: auto;
-            width: 300px;
-            max-height: 400px;
-            overflow-y: auto;
-            opacity: 1;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-          }
-        }
-
-        .main-column.content .nav-menu.w-nav-menu .nav-link {
-          display: block;
+        .portfolio-tabs .nav-link {
+          margin: 0;
+          padding: 14px 20px;
+          color: rgba(255, 255, 255, 0.7);
+          font-weight: 700;
+          letter-spacing: 2px;
           text-align: center;
-          padding: 18px 16px;
+          white-space: nowrap;
+          border-bottom: 2px solid transparent;
+          box-shadow: none;
+          transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+        .portfolio-tabs .nav-link:hover,
+        .portfolio-tabs .nav-link:focus-visible {
           color: #fff;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          font-weight: 700;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom-color: var(--tab-color);
         }
 
-        .main-column.content .nav-menu.w-nav-menu .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        @media screen and (max-width: 991px) {
-          .main-column.content .menu-wrapper {
-            padding: 14px 30px;
-            border-radius: 50px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-width: 140px;
-            backdrop-filter: blur(10px);
-            /* Center the MENU button (override Webflow float-right) */
-            float: none !important;
-            position: absolute !important;
-            left: 50% !important;
-            top: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            z-index: 105 !important;
-          }
-        }
-
-        .main-column.content .menu-wrapper .menu {
-          font-weight: 700;
-          letter-spacing: 2px;
-          color: #ffffff !important;
-        }
-
-        .main-column.content .menu-wrapper.w-nav-button:active {
-          transform: translateY(1px);
-        }
-
-        .main-column.content .menu-wrapper .menu-icon {
-          filter: invert(1);
+        .portfolio-tabs .nav-link.w--current {
+          color: #fff;
+          border-bottom-color: var(--tab-color);
+          text-shadow: 0 0 10px var(--tab-color);
         }
 
         @media screen and (max-width: 767px) {
@@ -800,16 +693,25 @@
             z-index: 1001 !important;
           }
 
-          .main-column.content .navbar {
-            padding: 8px 0;
-            min-height: 68px;
-            --portfolio-nav-h: 68px;
-            position: sticky;
+          /* Tabs share the width evenly; on very narrow screens they scroll
+             sideways instead of wrapping. */
+          .portfolio-tabs {
+            justify-content: flex-start;
+            gap: 0;
+            padding: 4px 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
           }
 
-          .main-column.content .nav-menu.w-nav-menu .nav-link {
-            padding: 16px 12px;
-            font-size: 0.95rem;
+          .portfolio-tabs::-webkit-scrollbar {
+            display: none;
+          }
+
+          .portfolio-tabs .nav-link {
+            flex: 1 0 auto;
+            padding: 14px 10px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
           }
         }
 
@@ -846,18 +748,11 @@
       </div>
     </header>
     <div class="main-column content">
-      <nav data-collapse="small" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease"
-        role="banner" class="navbar w-nav">
-        <nav role="navigation" class="nav-menu w-nav-menu">
-          <a href="#" data-tab="articles" class="nav-link w-nav-link w--current">Web & AI</a>
-          <a href="#" data-tab="ux" class="nav-link w-nav-link">UX</a>
-          <a href="#" data-tab="video" class="nav-link w-nav-link">Video</a>
-          <a href="#" data-tab="mixed-media" class="nav-link w-nav-link">Mixed Media</a>
-        </nav>
-        <div class="menu-wrapper w-clearfix w-nav-button">
-          <div class="menu">MENU</div>
-          <div class="menu-icon w-icon-nav-menu"></div>
-        </div>
+      <nav class="portfolio-tabs" aria-label="Portfolio categories">
+        <a href="#" data-tab="articles" class="nav-link w--current" aria-current="true">Web & AI</a>
+        <a href="#" data-tab="ux" class="nav-link">UX</a>
+        <a href="#" data-tab="video" class="nav-link">Video</a>
+        <a href="#" data-tab="mixed-media" class="nav-link">Mixed Media</a>
       </nav>
 
       <!-- Web & AI Tab Content -->
@@ -1294,15 +1189,6 @@
     document.addEventListener('DOMContentLoaded', function () {
       const tabLinks = document.querySelectorAll('.nav-link[data-tab]');
       const tabContents = document.querySelectorAll('.tab-content');
-      const navMenu = document.querySelector('.nav-menu.w-nav-menu');
-      const navButton = document.querySelector('.menu-wrapper.w-nav-button');
-
-      function closeNavMenu() {
-        if (!navMenu || !navButton) return;
-        navMenu.classList.remove('w--open');
-        navMenu.removeAttribute('data-nav-menu-open');
-        navButton.classList.remove('w--open');
-      }
 
       // Function to switch tabs
       function switchTab(tabId) {
@@ -1314,6 +1200,7 @@
         // Remove active class from all tab links
         tabLinks.forEach(link => {
           link.classList.remove('w--current');
+          link.removeAttribute('aria-current');
         });
 
         // Show selected tab content
@@ -1326,6 +1213,7 @@
         const activeLink = document.querySelector(`[data-tab="${tabId}"]`);
         if (activeLink) {
           activeLink.classList.add('w--current');
+          activeLink.setAttribute('aria-current', 'true');
         }
       }
 
@@ -1335,8 +1223,6 @@
           e.preventDefault();
           const tabId = this.getAttribute('data-tab');
           switchTab(tabId);
-          // Retract menu after choosing a tab (mobile UX)
-          closeNavMenu();
         });
       });
     });
